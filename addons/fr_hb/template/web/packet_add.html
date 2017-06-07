@@ -1,0 +1,79 @@
+{template 'common/header'}
+<link type="text/css" rel="stylesheet" href="{__CSS__}/slider.css" />
+<script type="text/javascript" src="{__JS__}/bootstrap-slider.js"></script>
+<div class="main">
+	<ul class="nav nav-tabs">
+        <li><a href="{php echo $this->createWebUrl('project');}">返回项目列表</a></li>
+        <li><a href="{php echo $this->createWebUrl('packet', array('id' => $project_id));}">{$project['title']}红包列表</a></li>
+        <li class="active"><a href="{php echo $this->createWebUrl('packet', array('act' => 'add', 'id' => $project_id));}">添加红包</a></li>
+	</ul>
+	<form action="" class="form-horizontal form" method="post" autocomplete="off">
+		<input type="hidden" name="packet_id" value="{$item['id']}">
+		<input type="hidden" name="token" value="{$_W['token']}" />
+		<input type="hidden" name="act" value="update" />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+                            {if !empty($id)}修改{else}添加{/if}{$project['title']}红包
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包类型</label>
+                                    <div class="col-sm-8">{$type_text[$project['type']]}</div>
+				</div>
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包金额</label>
+                                    <div class="col-sm-8">
+                                        <div class="clearfix">
+                                            <div class="col-sm-4" style="padding-left: 0">
+                                                <div class="input-group">
+                                                    <input class="form-control" id="money" type="number" min="{$project['min_money']}" max="{$project['max_money']}" value="{$item['money']}" name="packet[money]">
+                                                    <span class="input-group-addon">分</span>
+                                                </div>
+                                            </div>
+                                            <a href="javascript:;" class="btn btn-danger" id="getRand">生成随机金额</a>
+                                        </div>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>红包金额根据项目的“最小额度{$project['min_money']}”和“最大额度{$project['max_money']}”随机生成（单位：分）</p>
+                                        </span>
+                                    </div>
+				</div>
+                                {if $item['isqrc'] != 1}
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否生成二维码图片</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="1" name="isqrc"> 生成
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="0" name="isqrc" checked> 不生成
+                                        </label>
+                                    </div>
+                                </div>
+                                {/if}
+<!--                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包有效时间</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_daterange('datetime', $item['datetime'], true)}
+                                    </div>
+				</div>-->
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+                                    </div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+function GetRandomNum(Min,Max){
+    return parseInt(Math.random()*(Max-Min+1)+Min,10);
+}
+require(['util', 'jquery'], function(u, $){
+    $("#getRand").on("click", function(){
+        $("#money").val( GetRandomNum($("#money").attr('min'), $("#money").attr('max')) );
+    })
+});
+</script>
+{template 'common/footer'}

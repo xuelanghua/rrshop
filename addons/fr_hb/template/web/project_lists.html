@@ -1,0 +1,137 @@
+{template 'common/header'}
+<div class="main">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{php echo $this->createWebUrl('project');}">项目列表</a></li>
+        <li><a href="{php echo $this->createWebUrl('project', array('act' => 'add'));}">添加项目</a></li>
+    </ul>
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site">
+                <input type="hidden" name="a" value="entry">
+                <input type="hidden" name="do" value="project">
+                <input type="hidden" name="m" value="fr_hb" />
+                <input name="token" type="hidden" value="{$_W['token']}" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">项目名称</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" name="title" type="text" value="{$_GPC['title']}">
+                    </div>
+                    <div class=" col-xs-12 col-sm-2 col-lg-2">
+                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <a class="btn btn-primary {if empty($status)} disabled{/if}" href="{php echo $this->createWebUrl('project');}">全部</a>
+        <a class="btn btn-primary {if $status == '1'} disabled{/if}" href="{php echo $this->createWebUrl('project', array('status' => '1'));}">已开始</a>
+        <a class="btn btn-primary {if $status == '2'} disabled{/if}" href="{php echo $this->createWebUrl('project', array('status' => '2'));}">已结束</a>
+        <a class="btn btn-primary {if $status == '3'} disabled{/if}" href="{php echo $this->createWebUrl('project', array('status' => '3'));}">未开始</a>
+    </div>
+    <div style="padding-top:15px;"></div>
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                项目列表
+            </div>
+        <div class="panel-body" ng-controller="advAPI">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:60px;">ID</th>						
+                        <th>项目名称</th>
+                        <th>项目开始时间</th>
+                        <th>项目结束时间</th>
+                        <th>红包类型</th>
+                        <th style="width:260px;">红包总量 / 已生成</th>
+                        <th style="text-align:center;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {if $list}
+                    {loop $list $row}
+                        <tr>			
+                            <td class="row-first">{$row['id']}</td>
+                            <td>{$row['title']}</td>
+                            <td>{php echo timeToStr($row['start_time']);}</td>
+                            <td>{php echo timeToStr($row['end_time']);}</td>
+                            <td>{$type_text[$row['type']]}</td>
+                            <td>
+                                {php $PacketCount = getPacketCount($row['id'])}
+                                {$row['numbers']} / {$PacketCount}
+                            </td>
+                            <td align="center">
+                                {if $PacketCount < $row['numbers']}
+                                <a href="javascript:;" title="批量生成红包" ng-click="generation({$row['id']});" ><i class="fa fa-play-circle"></i></a>  |
+                                {else}
+                                <a href="javascript:;" title="批量生成红包" style="color: #CCC"><i class="fa fa-play-circle"></i></a>  |
+                                {/if}
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'lists', 'id' => $row['id']));}" title="红包管理"><i class="fa fa-envelope"></i></a>  |
+                                <a href="{php echo $this->createWebUrl('draw', array('act' => 'lists', 'id' => $row['id']));}" title="抽奖奖品管理"><i class="fa fa-gift"></i></a>  |
+                                <a href="{php echo $this->createWebUrl('project', array('act' => 'add', 'id' => $row['id']));}" title="编辑"><i class="fa fa-edit"></i></a>  |
+                                <a href="{php echo $this->createWebUrl('project', array('act' => 'delete', 'id' => $row['id']));}" title="删除" onclick="return confirm('删除项目将同时删除所有项目相关红包且不可恢复,确定要删除该项目吗?')"><i class="fa fa-remove"></i></a>
+                            </td>
+                        </tr>
+                    {/loop}
+                    {else}
+                        <tr>
+                            <td colspan="7" align='center'>暂无数据</td>
+                        </tr>
+                    {/if}
+                </tbody>
+            </table>
+            {$pager}
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var running = false;
+	window.onbeforeunload = function(e) {
+		if(running) {
+                    return (e || window.event).returnValue = '正在批量生成红包中, 离开此页面将会中断操作.';
+		}
+	}
+	
+	require(['angular', 'jquery', 'util'], function(angular, $, u){
+		angular.module('app', []).controller('advAPI', function($scope, $element, $http) {
+			$scope.adv = {
+				running : true,
+				genState : ''
+			};
+			$scope.generation = function(id, count){
+				$scope.adv.running = running = true;
+				var params = {};
+				params.method = 'generation';
+				if(!count) {
+					count = 0;
+				}
+                                if (!id) {
+                                    u.message('参数有误，请刷新页面后重新操作！', location.href, 'error');
+                                }
+                                u.message('正在生成红包<br>请不要离开页面或进行其他操作,红包生成完毕系统会自动刷新本页面');
+				$scope.adv.running = running = true;
+				$http.post("{php echo $this->createWebUrl('packet', array('act' => 'generation'))}&id="+id, params).success(function(dat){
+					$scope.adv.running = running = false;
+					if(dat == 'success') {
+                                            //location.reload();
+                                            u.message('红包生成完毕！', "{php echo $this->createWebUrl('packet', array('act' => 'lists'));}&id="+id, 'success');
+					}else if(dat == 'go'){
+                                            $scope.generation(id, count);
+                                        }else {
+                                            if (typeof dat == 'object') {
+                                                u.message(dat.message, dat.redirect, dat.type);
+                                            }else {
+                                                var msg = dat == '' ? '未知错误, 请稍后重试.' : dat;
+                                                u.message(msg, location.href, 'error');
+                                            }
+					}
+				});
+			}
+		});
+		angular.bootstrap(document, ['app']);
+	});
+</script>
+{template 'common/footer'}

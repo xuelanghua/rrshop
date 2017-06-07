@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>抽奖大屏幕</title>
+<meta name="format-detection" content="telephone=no, address=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link href="./resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="./resource/css/font-awesome.min.css" rel="stylesheet">
+<link href="./resource/css/common.css" rel="stylesheet">
+<script src="{MODULE_URL}template/js/jquery-2.1.1.min.js"></script>
+<script src="{MODULE_URL}template/js/jquery.slotmachine.min.js"></script>
+<script src="{MODULE_URL}template/js/sweetalert.min.js"></script>
+<link type="text/css" rel="stylesheet" href="{MODULE_URL}template/js/sweetalert.css"/>
+</head>
+<style>
+html { height: 100%; }
+body { height: 100%; background: #FFF url({if !$item['bg']}{MODULE_URL}template/img/bg.jpg{else}{$_W['attachurl']}{$item['bg']}{/if}) no-repeat; background-size: 100% 100%; }
+.lucky_root { width: 800px; margin: 20px auto; }
+.lucky_header { display: table; width: 100%; color: #FFF; text-align: center }
+.lucky_body { padding: 10px 0; width: 100%; margin-bottom:20px}
+.lucky_foot { padding: 10px 0; display: table; color: #FFF; width: 100%; }
+ul.lucky_list, ul.lucky_list li { margin: 0; list-style: none; padding: 0; text-align: center; }
+ul.lucky_list li { display: inline-block; width: 18%; margin: 6px; position: relative; background: #FFF; } 
+.list_img { overflow: hidden; position: relative }
+.list_label { position: absolute; top: -1px; left: -1px; padding: 3px 0 0 3px; color: #FFF; font-size: 14px; }
+.list_img img { width: 100%; }
+ul.lucky_list li h2 { margin: 0; padding: 8px 0; text-align: center; font-size: 14px; font-weight: normal; }
+.list_progress { padding: 0 5px 10px 5px; }
+.list_progress .progress { height: 18px; border-radius: 10px }
+.jrow { display: table-row; } .jcell { display: table-cell; }
+.mover { background-size: cover }
+#lucky_turn { text-align: center; width: 100%; }
+#lucky_turn ul, #lucky_turn ul li { list-style: none; margin: 0; padding: 0 }
+#lucky_turn ul { width: 100%; margin: 0 auto }
+.lucky_body ul,.lucky_body ul li{ list-style:none; margin:0; padding:0; text-align:center}
+.lucky_body ul li{ width:146px; margin:5px; background:#FFF; height:146px; display:inline-block; border:#FFF 3px solid}
+.slotMachine{overflow:hidden;text-align: center;width:140px;height:140px;}
+.slotMachine .slot{height:140px;background-size:100% 100%;}
+</style>
+<body>
+<div class="lucky_root">
+  <div class="lucky_header">
+    <div class="jrow">
+      <div class="jcell" style="width:220px;"><img src="{MODULE_URL}template/img/logo_v1.png"/></div>
+      <div class="jcell" style="font-size:26px; font-weight:bold">{$item['title']}</div>
+      <div class="jcell" style="text-align:right;width:80px;"><img src="{$_W['attachurl']}qrcode_{php echo pdo_fetchcolumn("SELECT acid FROM ".tablename('account')." WHERE uniacid=:uniacid ",array(':uniacid'=>$_W['uniacid']))}.jpg" width="80"/></div>
+    </div>
+  </div>
+  <div class="lucky_body">
+    <ul>
+      <LI>
+        <div id="machine1" class="slotMachine">
+          <div class="slot" style="background:url({if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if});background-size:100% 100%;"></div>
+        </div>
+      </LI>
+      <LI>
+        <div id="machine2" class="slotMachine">
+          <div class="slot" style="background:url({if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if});background-size:100% 100%;"></div>
+        </div>
+      </LI>
+      <LI>
+        <div id="machine3" class="slotMachine">
+          <div class="slot" style="background:url({if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if});background-size:100% 100%;"></div>
+        </div>
+      </LI>
+      <LI>
+        <div id="machine4" class="slotMachine">
+          <div class="slot" style="background:url({if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if});background-size:100% 100%;"></div>
+        </div>
+      </LI>
+      <LI>
+        <div id="machine5" class="slotMachine">
+          <div class="slot" style="background:url({if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if});background-size:100% 100%;"></div>
+        </div>
+      </LI>
+    </ul>
+  </div>
+  <div class="lucky_foot">
+    <div class="jrow">
+      <div class="jcell" style="font-size:16px;"></div>
+      <div class="jcell form-inline" style="text-align:right">
+        <select id="lucky_prize" class="form-control">
+          <option value="0">选择奖项</option>
+        	{loop $prize_list $row}
+          <option value="{$row}">{$row}</option>
+            {/loop}
+        </select>
+        <select id="lucky_num" class="form-control">
+          <option value="0">选择抽奖人数</option>
+          <option value="1">1人</option>
+          <option value="2">2人</option>
+          <option value="3">3人</option>
+          <option value="4">4人</option>
+          <option value="5">5人</option>
+        </select>
+        <button type="button" id="i-btn-start" onClick="StartGame()"  class="btn btn-success">开始抽奖</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var machine1,machine2,machine3,machine4,machine5;
+var joinerList=[];
+var winnerList=[];
+var gameconfig={
+	delayTime:500,
+	shuffleTime:8,
+};
+var _curnum=0;
+var headbg="{if $item['thumb']}{$_W['attachurl']}{$item['thumb']}{else}{MODULE_URL}/template/img/heading.jpg{/if}";
+$(document).ready(function(e) {
+	var _windowH=$(window).height();
+    //$(".lucky_body").height(_windowH-350);
+});
+function StartGame(){
+	_curnum=0;
+	var _num=parseInt($("#lucky_num option:selected").val());
+	var _prize=$("#lucky_prize option:selected").val();
+	if(!_num){
+		swal("请选择抽奖人数");
+		return;
+	}
+	if(_prize=='0'){
+		swal("请选择奖品");
+		return;
+	}
+	$("#i-btn-start,#lucky_prize,#lucky_num").attr("disabled","disabled");
+	winnerList=[];
+	$.post("{php echo $this->createWebUrl('lucky',array('op'=>'getuser','id' =>$id,'pcate' => $pcate,))}",{},function(data){
+		if(data.success){
+			var _userlist=data.user;
+			joinerList=_userlist;
+			if(_userlist.length<5)swal("参与人数不足");
+			var temp='<div class="slot" style="background:url('+headbg+');background-size:100% 100%;"></div>';
+			for(i=0;i<_userlist.length;i++){
+				temp+='<div from_user="'+_userlist[i].from_user+'" nickname="'+_userlist[i].nickname+'" class="slot" style="background:url('+_userlist[i].avatar+');background-size:100% 100%;"></div>';
+			}
+			$(".lucky_body ul").html('<LI><div id="machine1" class="slotMachine"></div></div></LI><LI><div id="machine2" class="slotMachine"></div></div></LI><LI><div id="machine3" class="slotMachine"></div></div></LI><LI><div id="machine4" class="slotMachine"></div></div></LI><LI><div id="machine5" class="slotMachine"></div></div></LI>');
+			$("#machine1,#machine2,#machine3,#machine4,#machine5").html(temp);
+			switch(_num){
+				case 1:
+					winnerList.push(_userlist[0].from_user);
+					machine1 = $("#machine1").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine2 = $("#machine2").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine3 = $("#machine3").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine4 = $("#machine4").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine5 = $("#machine5").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+				break;
+				case 2:
+					winnerList.push(_userlist[0].from_user);
+					winnerList.push(_userlist[1].from_user);
+					machine1 = $("#machine1").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine2 = $("#machine2").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine3 = $("#machine3").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 0}});
+					machine4 = $("#machine4").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 2}});
+					machine5 = $("#machine5").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 2}});
+				break;
+				case 3:
+					winnerList.push(_userlist[0].from_user);
+					winnerList.push(_userlist[1].from_user);
+					winnerList.push(_userlist[2].from_user);
+					machine1 = $("#machine1").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 0}});
+					machine2 = $("#machine2").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine3 = $("#machine3").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 2}});
+					machine4 = $("#machine4").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 3}});
+					machine5 = $("#machine5").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 0}});
+				break;
+				case 4:
+					winnerList.push(_userlist[0].from_user);
+					winnerList.push(_userlist[1].from_user);
+					winnerList.push(_userlist[2].from_user);
+					winnerList.push(_userlist[3].from_user);
+					machine1 = $("#machine1").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine2 = $("#machine2").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 2}});
+					machine3 = $("#machine3").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 0}});
+					machine4 = $("#machine4").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 3}});
+					machine5 = $("#machine5").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 4}});
+				break;
+				case 5:
+					winnerList.push(_userlist[0].from_user);
+					winnerList.push(_userlist[1].from_user);
+					winnerList.push(_userlist[2].from_user);
+					winnerList.push(_userlist[3].from_user);
+					winnerList.push(_userlist[4].from_user);
+					machine1 = $("#machine1").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 1}});
+					machine2 = $("#machine2").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 2}});
+					machine3 = $("#machine3").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 3}});
+					machine4 = $("#machine4").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 4}});
+					machine5 = $("#machine5").slotMachine({active:0,delay:gameconfig.delayTime,randomize:function(activeElementIndex){return 5}});
+				break;
+			}
+			machine1.shuffle(gameconfig.shuffleTime, onComplete);
+			setTimeout(function(){machine2.shuffle(gameconfig.shuffleTime, onComplete);}, 300);
+			setTimeout(function(){machine3.shuffle(gameconfig.shuffleTime, onComplete);}, 600);
+			setTimeout(function(){machine4.shuffle(gameconfig.shuffleTime, onComplete);}, 900);
+			setTimeout(function(){machine5.shuffle(gameconfig.shuffleTime, onComplete);}, 1200);
+		}
+	},'json');
+}
+
+function onComplete(active){
+	_curnum++;
+	if(_curnum>=5){
+		var _prize=$("#lucky_prize option:selected").val();
+		$.post("{php echo $this->createWebUrl('lucky',array('op'=>'submitwinner','id' =>$id,'pcate' => $pcate,))}",{
+			"prize":_prize,
+			"userlist": winnerList.join("|^^|"),
+		},function(data){
+			if(data.success){
+				var _prizes=data.prize;
+				var _allprizes=0;
+				for(i in _prizes){
+					_allprizes+=parseInt(_prizes[i]);
+					$("#lucky_prize option[value='"+i+"'").text(i+"("+_prizes[i]+")");
+				}
+				$("#lucky_prize option").eq(0).text("选择奖项("+_allprizes+")");
+				$("#i-btn-start,#lucky_prize,#lucky_num").removeAttr("disabled");
+			}
+		},'json');
+		
+	}
+}
+</script>

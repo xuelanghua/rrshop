@@ -1,0 +1,21 @@
+{template 'common/header'}
+
+<div class="main">
+  <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+    <div class="panel panel-default">
+      <div class="panel-heading">自主升级</div>
+      <div class="panel-body">
+        <div class="col-sm-9 form-inline">
+          <div class="input-group "> <span class="input-group-addon">当前版本</span>
+            <input type="text" value="{php echo $_version}" disabled style="width:80px" class="form-control">
+          </div>
+          <div class="input-group "> <span class="input-group-addon">升级版本</span>
+            <input type="text" value="{php echo $result}" disabled style="width:80px" class="form-control">
+          </div>
+          {if $showResult}<a href="{php echo $this->createWebUrl('Upgrade')}" class="btn btn-success">升级</a>{else}<a class="btn btn-default">暂无更新</a>{/if}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{template 'common/footer'}

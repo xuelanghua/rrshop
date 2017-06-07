@@ -1,0 +1,18 @@
+{template 'header'}
+<style>
+body { background-color:#fcc803; margin:0px; padding:0px; font: 14px Verdana, Arial, Helvetica, sans-serif; color:#7a6100 }
+.tips { width:100px; height:42px; background:url(../images/tips.jpg) no-repeat; line-height:42px; color:#fff; font-weight:bold; text-indent:1em }
+.row { width:100%; margin:10px 0px; padding:0px; }
+.text-center { text-align:center }
+</style>
+<div class="row text-center" >
+    <div style="font-size:25px;color:#fff;font-weight:bold;line-height:40px;color:#fa3137">请先关注我们</div>
+</div>
+<div class="row text-center"> <img src="http://open.weixin.qq.com/qr/code/?username={$accounts['account']}" width="180"/> <img style="display:none" src="{$_W[attachurl]}qrcode_{$account['acid']}.jpg?time={php echo time()}" width="180"/> </div>
+<div class="row text-center" >
+    <div style="font-size:22px;color:#fff;font-weight:bold;line-height:40px;color:#fa3137">"长按图片，识别图中二维码"</div>
+    <div style="line-height:30px;"> 如长按图片无效，搜索以下微信号添加即可 </div>
+    <div style="font-size:28px;font-weight:bold;line-height:60px;color:#000000"><span style="border:1px dashed #000000;padding:5px 10px">{$accounts['account']}</span></div>
+    <div style="line-height:30px;">长按虚线框，拷贝微信号</div>
+</div>
+{template 'footer'}

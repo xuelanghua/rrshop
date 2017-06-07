@@ -1,0 +1,482 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+  <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('code', array('pcate' => $pcate))}">管理抽奖码</a></li>
+  <li {if $operation == 'add'}class="active"{/if}><a href="{php echo $this->createWebUrl('code', array('op'=>'add','pcate' => $pcate))}">批量添加(1万内)</a></li>
+  <li {if $operation == 'add2'}class="active"{/if}><a href="{php echo $this->createWebUrl('code', array('op'=>'add2','pcate' => $pcate))}">大批量添加</a></li>
+</ul>
+<script>
+require(['bootstrap'],function($){
+	$('.btn,.tips').hover(function(){
+		$(this).tooltip('show');
+	},function(){
+		$(this).tooltip('hide');
+	});
+});
+</script>
+{if $operation == 'post'}
+{elseif $operation == 'add'}
+<div class="main">
+  <form class="form-horizontal form" enctype="multipart/form-data">
+    <div class="panel panel-default">
+      <div class="panel-heading"> 批量添加 </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">抽奖码数量</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <div class="input-group">
+              <span class="input-group-addon">{if $reply['codetype']==0}普通二维码{elseif $reply['codetype']==1}临时二维码{elseif $reply['codetype']==2}永久二维码{/if}</span>
+              {if $reply['codetype']==1}
+              <input name="timer" type="number" class="form-control" min="1" max="30" value="7"/>
+              <span class="input-group-addon">天</span>
+              {/if}
+              <input name="num" type="number" class="form-control" min="1" max="99999" value="1"/>
+              <span class="input-group-addon">个</span> 
+              <input type="text" disabled class="form-control" value="已有{$codecount}"/>
+              <span class="input-group-addon">个</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-xs-12">
+      <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick="showbox()" />
+      <input type="hidden" name="token" value="{$_W['token']}" />
+    </div>
+  </form>
+</div>
+<div id="increate" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">抽奖码生成</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:0"> <span class="sr-only">0</span> </div>
+        </div>
+        <div id="icounter" style="text-align:center"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="stratbtn" onclick="createCode()">马上开始</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function showbox(){
+	$("#increate").modal({
+		backdrop:'static',
+		keyboard:false,
+		show:true,
+	})
+}
+function createCode(){
+	if($("#stratbtn").attr("disabled"))return;
+	$("#stratbtn").attr("disabled","disabled");
+	var num=parseInt($("input[name='num']").val());
+	ajaxCreat(num);
+}
+function ajaxCreat(times){
+	if(times<=0){
+		alert("生成完成");
+		$("#increate").modal('hide');
+		location.href="{php echo $this->createWebUrl('code',array('pcate'=>$pcate))}";
+	}else{
+		var codetype=parseInt("{$reply['codetype']}");
+		var parmara={
+			"token":$("input[name='token']").val(),
+			"submit":$("input[name='submit']").val(),
+			"timer":parseInt($("input[name='timer']").val()),
+		};
+		var url="{php echo $this->createWebUrl('ajax',array('op'=>'addcode','pcate'=>$pcate,'codetype'=>$reply['codetype']))}";
+		if(codetype)url="{php echo $this->createWebUrl('ajax',array('op'=>'addonecode','pcate'=>$pcate,'codetype'=>$reply['codetype'],'keyword'=>$keyword))}";
+		$.post(url,parmara,function(d){
+			data=eval("("+d+")");
+			if(data.success){
+				times --;
+				allnum=parseInt($("input[name='num']").val());
+				progress=parseInt((allnum-times)/allnum*100);
+				$(".progress-bar").attr('aria-valuenow',progress);
+				$("#icounter").html((allnum-times)+"/"+allnum);
+				$(".progress-bar").css('width',progress+"%");
+				$(".sr-only").html(progress+"%");
+				ajaxCreat(times);
+			}else if(data.success==false){
+				alert('请求错误!');
+			}else{
+				alert('错误！请刷新或者关闭页面查询错误');
+			}
+		});
+	}
+}
+</script> 
+{elseif $operation == 'add2'}
+<div class="main">
+  <form class="form-horizontal form" enctype="multipart/form-data">
+    <div class="panel panel-default">
+      <div class="panel-heading"> 批量添加 </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">抽奖码数量</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <div class="input-group">
+              <span class="input-group-addon">{if $reply['codetype']==0}普通二维码{elseif $reply['codetype']==1}临时二维码{elseif $reply['codetype']==2}永久二维码{/if}</span>
+              {if $reply['codetype']==1}
+              <input name="timer" type="number" class="form-control" min="1" max="30" value="7"/>
+              <span class="input-group-addon">天</span>
+              {/if}
+              <input name="num" type="number" class="form-control" required min="1" max="99999" value="{php echo $_GPC['num']}"/>
+              <span class="input-group-addon">个</span>
+              <input type="text" disabled class="form-control" value="已有{$codecount}"/>
+              <span class="input-group-addon">个</span>
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-xs-12">
+      <input type="button" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick="showbox()" />
+      <input type="hidden" name="token" value="{$_W['token']}" />
+    </div>
+  </form>
+</div>
+<div id="increate" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">抽奖码生成</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:0"> <span class="sr-only">0</span> </div>
+        </div>
+        <div id="icounter" style="text-align:center"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="stratbtn" onclick="createCode()">马上开始</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var timer_timecount=0;
+var timerclock;
+var cur_count=parseInt("{php echo $_GPC['cur_count']}");
+$(document).ready(function(e) {
+    if(cur_count){
+		showbox();
+		createCode();
+	}
+});
+function showbox(){
+	$("#increate").modal({
+		backdrop:'static',
+		keyboard:false,
+		show:true,
+	})
+}
+function createCode(){
+	if($("#stratbtn").attr("disabled"))return;
+	$("#stratbtn").attr("disabled","disabled");
+	var num=parseInt($("input[name='num']").val());
+	if(isNaN(num) || num<=0){
+		alert("最少生成1个码哦");
+		$("#stratbtn").removeAttr("disabled");
+		return;
+	}
+	cur_count=cur_count ? cur_count : num;
+	$("#icounter").html('0/'+num);
+	ajaxCreatCode();
+}
+var pernum=50;
+function ajaxCreatCode(){
+	window.clearInterval(timerclock);
+	if(cur_count<=0){
+		$("#increate").modal('hide');
+		location.href="{php echo $this->createWebUrl('code',array('pcate'=>$pcate))}";
+	}else{
+		allnum=parseInt($("input[name='num']").val());
+		timer_timecount=0;
+		var sendnum=pernum;
+		if(cur_count<pernum)sendnum=cur_count;
+		var codetype=parseInt("{$reply['codetype']}");
+		var parmara={
+			"num":sendnum,
+			"token":$("input[name='token']").val(),
+			"submit":$("input[name='submit']").val(),
+			"timer":parseInt($("input[name='timer']").val()),
+		};
+		timerclock=window.setInterval(function(){
+			timer_timecount++;
+			console.log(timer_timecount);
+			if(timer_timecount>=8){
+				location.href="{php echo $this->createWebUrl('code',array('pcate'=>$pcate,'op'=>'add'))}&num="+allnum+"&cur_count="+cur_count;
+				return;
+			}
+		},1000);
+		var url="{php echo $this->createWebUrl('ajax',array('op'=>'addcode','pcate'=>$pcate,'codetype'=>$reply['codetype']))}";
+		if(codetype)url="{php echo $this->createWebUrl('ajax',array('op'=>'addcode2','pcate'=>$pcate,'codetype'=>$reply['codetype'],'keyword'=>$keyword))}";
+		$.post(url,parmara,function(d){
+			window.clearInterval(timerclock);
+			data=eval("("+d+")");
+			if(data.success){
+				var num_true=parseInt(data.num);
+				cur_count=cur_count-num_true;
+				progress=parseInt((allnum-cur_count)/allnum*100);
+				$(".progress-bar").attr('aria-valuenow',progress);
+				$("#icounter").html((allnum-cur_count)+"/"+allnum);
+				$(".progress-bar").css('width',progress+"%");
+				$(".sr-only").html(progress+"%");
+				if(cur_count<=0){
+					alert("生成完成！");
+					location.href="{php echo $this->createWebUrl('code',array('pcate'=>$pcate))}";
+					return;
+				}
+				ajaxCreatCode();
+			}else if(data.success==false){
+				alert(d)
+			}else{
+				alert('错误！请刷新或者关闭页面查询错误');
+			}
+		});
+	}
+}
+</script> 
+{elseif $operation == 'display'}
+<script language="javascript" src="../addons/j_securitycode/template/js/bootstrap-tooltip.js"></script>
+<script language="javascript" src="../addons/j_securitycode/template/js/bootstrap-popover.js"></script>
+<div class="main">
+  <div class="category">
+    <div class="panel panel-info">
+      <div class="panel-body">
+      <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>总数量</th>
+              <th>已使用数量</th>
+              <th>剩余数量</th>
+              <th>红包派发金额</th>
+              <th>失败金额</th>
+              <th>余额</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{$all}</td>
+              <td>{$haduse}</td>
+              <td>{php echo $all-$haduse}</td>
+              <td>￥{php echo sprintf('%.2f', pdo_fetchcolumn("select sum(fee) from ".tablename('j_securitycode_code')." WHERE pcate = '$pcate' ") / 100)}</td>
+              <td>{php echo sprintf('%.2f', pdo_fetchcolumn("select sum(fee) from ".tablename('j_securitycode_code')." WHERE pcate = '$pcate' and completed<>1 ") / 100)}</td>
+              <td>{php echo sprintf('%.2f', pdo_fetchcolumn("select remainfee from ".tablename('j_securitycode_redpack')." WHERE id = ".$reply['redpackid']) / 100)}</td>
+            </tr>
+          </tbody>
+          <tr>
+              <td colspan="3">
+              <a href="javascript:putOut(1)" class="btn btn-info" target="_blank">导出所有防伪码</a>
+              <a href="javascript:putOut(0)" class="btn btn-primary" target="_blank">导出未使用防伪码</a>
+              <a href="javascript:showbox();" class="btn btn-danger">导入信息</a>
+              <a href="{php echo $this->createWebUrl('code',array('op'=>'export2','pcate'=>$pcate))}" class="btn btn-warning" target="_blank">导出使用情况</a> </td>
+            </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default form-inline">
+    
+      <div class="panel-heading">
+      <form action="" method="get" class="form-horizontal form" enctype="multipart/form-data">
+      <a href="{php echo $this->createWebUrl('code',array('used'=>'1','pcate'=>$pcate))}" class="btn {if $_GPC['used']}btn-info{else}btn-default{/if}">已用</a> <a href="{php echo $this->createWebUrl('code',array('used'=>'0','pcate'=>$pcate))}" class="btn {if !$_GPC['used']}btn-info{else}btn-default{/if}">未用</a>
+      
+      <input type="hidden" name="c" value="site" />
+      <input type="hidden" name="a" value="entry" />
+      <input type="hidden" name="do" value="code" />
+      <input type="hidden" name="m" value="j_securitycode" />
+      <input type="hidden" name="pcate" value="{php echo $pcate}" />
+        <div class="input-group">
+          <input type="text" class="form-control" name="keyword" value="{php echo $_GPC['keyword']}" placeholder="请输入搜索内容">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">搜索</button>
+          </span>
+        </div>
+      </form>
+      </div>
+      
+      <div class="panel-body table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+           	  <th style="width:80px">编号</th>
+              <th>抽奖码</th>
+              <th>类别</th>
+              <th>状态</th>
+              <th>使用情况</th>
+              <th>有效时间</th>
+              <th>红包</th>
+              <th>自定义参数</th>
+              {if $reply['playtype']==2}
+              <th>问题</th>
+              {elseif $reply['playtype']==1}
+              <th>资料</th>
+              {else}
+              <th>扫码次数</th>
+              {/if}
+              <th style="text-align:right">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          {php $i=1;}
+          {loop $list $row}
+          <tr>
+          	<td>{$row['id']}</td>
+            <td>
+            {if !$row['codetype']}
+            <a href="http://qr.liantu.com/api.php?text={$item['link']}?{php echo urlencode($this->encrypt($pcate.'|#|'.$row['code'],'E',$__securitycode['__securitycode']))}" target="_blank"><span class="label label-info"><i class="fa fa-qrcode"></i></span></a>{else}<a href="http://qr.liantu.com/api.php?text={php echo urlencode($row['qrurl'])}" target="_blank"><span class="label label-info"><i class="fa fa-qrcode"></i></span>{/if}</td>
+            <td>{$row['qrtype']}</td>
+            <td>{if $row['status']}<span class="label label-default">已使用</span>{else}<span class="label label-success">可用</span>{/if}</td>
+            <td>
+            {$row['nickname']}<br>
+            {if $row['endtime']}<span class="label label-info">{php echo date('m/d H:i',$row['endtime'])}</span>{/if}
+            </td>
+            <td>{if $row['validtime']}<span class="label label-info">{php echo date('m/d H:i',$row['validtime'])}</span>{else}<span class="label label-primary">永久</span>{/if}</td>
+            <td>
+            {if $row['fee']}
+            <span class="label label-success">￥ {php echo sprintf('%.2f', $row['fee'] / 100)}</span>
+            {if $row['log']}<span class="label label-danger" data-container="body"  data-toggle="popover" data-placement="top" data-content="{$row['log']}"><i class="fa fa-exclamation-triangle"></i></span>{/if}
+            {if $row['completed']!=1}<a href="javascript:sendredpack({$row['id']})" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="重新发送红包" ><i class="fa fa-gift"></i></a>{/if}
+            {/if}
+            </td>
+            {php $prama=str_replace("|#|",";<br>",$row['parama'])}
+            <td><span class="label label-info" data-container="body" data-toggle="popover" data-placement="top" data-content="{php echo $prama}">参数</span></td>
+            {if $reply['playtype']==2}
+            {php $a=json_decode($row['argumentkey'],true);}
+            <td><span class="label label-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{php echo _dealArray($a)}">问题</span></td>
+            {elseif $reply['playtype']==1}
+            {php $b=json_decode($row['argument'],true);}
+            <td><span class="label label-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{php echo _dealArray($b)}">资料</span></td>
+            {else}
+            <td>{$row['scantime']}</td>
+            {/if}
+            <td style="text-align:right"><a href="{php echo $this->createWebUrl('code' ,array('op' => 'delete', 'cid' => $row['id'], 'pcate' => $pcate))}" onclick="return confirm('确认删除此内容吗？');return false;" class="btn btn-default btn-sm"><i class="fa fa-remove"></i></a></td>
+          </tr>
+          {php $i++}
+          {/loop}
+            </tbody>
+          
+        </table>
+        <div align="center">{php echo $pager}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---->
+<div id="increate" class="modal fade">
+<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">导入文件</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-default" onClick="$('#csvfile').click();">上传csv格式文件</button>
+        <input type="file" name="csvfile" id="csvfile" style="display:none;">
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" name="submit"  value="submit"class="btn btn-primary">开始导入</button>
+        <input type="hidden" name="token" value="{$_W['token']}" />
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+<div id="putout" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">导出数据</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active"> <span class="sr-only">0</span> </div>
+        </div>
+        <div id="icounter2" style="text-align:center"></div>
+      </div>
+      <input type="hidden" id="putouttpye" value="1"/>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" onclick="location.reload()">关闭</button>
+        <button type="button" id="btnputout"  class="btn btn-primary" onclick="putOutIntoExcel()">马上开始</button>
+        <a id="fileputout" style="display:none;"  class="btn btn-danger" href="../attachment/j_securitycode/csv/{$_W['uniacid']}/{php echo $pcate}_code.csv" target="_blank">下载文件</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script language="javascript">
+function showbox(){
+	$("#increate").modal({
+		backdrop:'static',
+		keyboard:false,
+		show:true,
+	})
+}
+var allOutNum=0;
+var pageindex=0;
+function putOut(obj){
+	$("#putouttpye").val(obj);
+	$("#btnputout").show().removeAttr("disabled");
+	$("#fileputout").hide();
+	pageindex=0;
+	$.post("{php echo $this->createWebUrl('ajax',array('pcate'=>$pcate,'op'=>'getnum'))}",{'puttype':obj},function(data){
+		if(data.success){
+			allOutNum=parseInt(data.all);
+			$("#putout").modal({
+				backdrop:'static',
+				keyboard:false,
+				show:true,
+			});
+			$("#icounter2").text("数据记录:"+allOutNum);
+		}
+	},'json');
+}
+function putOutIntoExcel(){
+	var _type=$("#putouttpye").val();
+	pageindex++;
+	$("#btnputout").attr("disabled");
+	$("#fileputout").hide();
+	$.post("{php echo $this->createWebUrl('ajax',array('pcate'=>$pcate,'op'=>'intoexcel'))}",{'puttype':_type,'pindex':pageindex},function(data){
+		if(data.success){
+			$("#putout .progress-bar").css('width',(pageindex/parseInt(data.allpage) * 100)+"%");
+			$("#icounter2").text("进度:"+pageindex+"/"+data.allpage);
+			if(pageindex>=parseInt(data.allpage)){
+				$("#btnputout").hide();
+				$("#fileputout").show();
+				window.open("../attachment/j_securitycode/csv/{$_W['uniacid']}/{php echo $pcate}_code.csv");
+				return;
+			}
+			putOutIntoExcel();
+		}else{
+			$("#btnputout").hide();
+			$("#fileputout").show();
+			window.open("../attachment/j_securitycode/csv/{$_W['uniacid']}/{php echo $pcate}_code.csv");
+		}
+	},'json');
+}
+
+$(function () {
+  $('[data-toggle="popover"]').popover();
+})
+function sendredpack(id){
+	$.post("{php echo $this->createWebUrl('ajax',array('op'=>'sendredpack'))}",{"id":id},function(data){
+		if(!data.success){
+			alert("发送失败，请刷新后查看结果");
+		}else{
+			alert("发送成功，请刷新后查看结果");
+		}
+		location.reload();
+	},'json');
+}
+</script>
+{/if}
+{template 'common/footer'} 

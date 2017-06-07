@@ -1,0 +1,449 @@
+{template 'common/header'}
+
+<ul class="nav nav-tabs">
+    <li><a href="{php echo $this->createWebUrl('prize',array('pici' => $pici))}">奖品列表</a></li>
+    <li class="active"><a href="{php echo $this->createWebUrl('prizeadd',array('pici' => $pici))}">添加奖品</a></li>
+</ul>
+<div class="clearfix">
+    <form class="form-horizontal form" action="" method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">奖品信息</div>
+			<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品类型</label>
+					<div class="col-xs-12 col-sm-9">
+                        <label class="radio-inline"><input type="radio" onclick="$('#red').show();$('#card').hide();$('#url').hide();$('#jifen').hide();$('#txt').hide();$('#moreprize').hide();$('#groupred').hide();" name="type"
+                         value="1" checked="checked">普通红包</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#groupred').show();$('#red').hide();$('#card').hide();$('#url').hide();$('#jifen').hide();$('#txt').hide();$('#moreprize').hide();" name="type"
+                         value="7">裂变红包</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#card').show();$('#red').hide();$('#url').hide();$('#jifen').hide();$('#txt').hide();$('#moreprize').hide();$('#groupred').hide();" name="type"
+                         value="2">微信卡券</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#url').show();$('#red').hide();$('#card').hide();$('#jifen').hide();$('#txt').hide();$('#moreprize').hide();$('#groupred').hide();" name="type"
+                         value="3">第三方链接</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#jifen').show();$('#red').hide();$('#card').hide();$('#url').hide();$('#txt').hide();$('#moreprize').hide();$('#groupred').hide();" name="type"
+                         value="4">系统积分</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#txt').show();$('#red').hide();$('#card').hide();$('#url').hide();$('#jifen').hide();$('#moreprize').hide();$('#groupred').hide();" name="type"
+                         value="5">文字描述</label>
+						 <label class="radio-inline"><input type="radio" onclick="$('#moreprize').show();$('#txt').hide();$('#red').hide();$('#card').hide();$('#url').hide();$('#jifen').hide();$('#groupred').hide();" name="type"
+                         value="6">多种奖品设置</label>
+                    </div>
+            </div>
+            
+        </div>
+		<div class="panel panel-default" id="red">
+			<div class="panel-heading">红包信息</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="red_name" placeholder="例如：一元红包">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包金额</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="min_money" placeholder="红包最小值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="max_money" placeholder="红包最大值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="prize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包总数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="prize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="groupred" style="display: none;">
+			<div class="panel-heading">裂变红包信息</div>
+			<div class="alert alert-danger" role="alert">裂变红包还在测试阶段，不建议投入商用，粉丝领取失败暂时还不能手动发送！</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="groupred_name" placeholder="例如：一元红包">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包金额</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="groupmin_money" placeholder="红包最小值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="groupmax_money" placeholder="红包最大值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">单个红包裂变人数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="grouptotal_num" placeholder=">=3人以上">
+                                    <span class="input-group-addon">人</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="groupprize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包总数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="groupprize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="card" style="display: none;">
+			<div class="panel-heading">卡券信息</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="card_name" placeholder="例如：满100减10元卡券">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">卡券ID</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="cardid">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">卡券概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="cprize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">卡券总数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="cprize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="url" style="display: none;">
+			<div class="panel-heading">链接信息</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="url_name" placeholder="例如：有赞优惠券">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">链接URL</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="url">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">链接概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="uprize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">链接总数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="uprize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="jifen" style="display: none;">
+			<div class="panel-heading">系统积分</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="credit_name" placeholder="例如：5积分">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">积分数值</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="credit">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="jprize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">数量</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="jprize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="txt" style="display: none;">
+			<div class="panel-heading">文字回复</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="txt_name" placeholder="例如：话费10元">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">回复内容</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="txt">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="tprize_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">数量</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="tprize_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<div class="panel panel-default" id="moreprize" style="display: none;">
+			<div class="panel-heading">多奖品信息</div>
+            <div class="panel-body">
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品名称</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="more_name" placeholder="例如：混合奖品">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品概率</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="more_odds" placeholder="请填写整数 如：50">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">奖品总数</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="more_sum" placeholder="请填写整数">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">红包金额</label>
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10" style="padding: 0">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="moremin_money" placeholder="红包最小值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="moremax_money" placeholder="红包最大值">
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">卡券ID</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="morecardid">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">自定义链接回复</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="moreurl">
+                    </div>
+                </div>
+			</div>
+		</div>
+        <div class="form-group margin-bottom">
+            <div class="col-sm-12">
+                <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+				<input type="hidden" name="pici" value="{$pici}"/>
+                <input type="hidden" name="token" value="{$_W['token']}"/>
+            </div>
+        </div>
+    </form>
+</div>
+{template 'common/footer'}

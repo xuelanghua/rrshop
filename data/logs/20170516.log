@@ -1,0 +1,1688 @@
+2017-05-16 00:04:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864282</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:04:42 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864282',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864282',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:04:42 response :
+------------
+
+2017-05-16 00:04:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864293</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:04:53 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864293',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864293',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:04:53 response :
+------------
+
+2017-05-16 00:05:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864327</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:05:27 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864327',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864327',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:05:27 response :
+------------
+
+2017-05-16 00:05:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864333</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:05:34 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864333',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864333',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:05:34 response :
+------------
+
+2017-05-16 00:05:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864344</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=home&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:05:44 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864344',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=home&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864344',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:05:44 response :
+------------
+
+2017-05-16 00:05:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494864350</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 00:05:51 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494864350',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494864350',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 00:05:51 response :
+------------
+
+2017-05-16 09:30:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494898229</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 09:30:29 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494898229',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494898229',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 09:30:29 response :
+------------
+
+2017-05-16 11:04:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494903895</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:04:55 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494903895',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494903895',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:04:55 response :
+------------
+
+2017-05-16 11:05:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494903923</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:05:24 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494903923',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494903923',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:05:24 response :
+------------
+
+2017-05-16 11:27:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494905259</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:27:39 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494905259',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494905259',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:27:39 response :
+------------
+
+2017-05-16 11:29:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494905382</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:29:42 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494905382',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494905382',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:29:42 response :
+------------
+
+2017-05-16 11:31:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494905480</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:31:20 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494905480',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494905480',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:31:20 response :
+------------
+
+2017-05-16 11:31:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494905519</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:31:59 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494905519',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494905519',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:31:59 response :
+------------
+
+2017-05-16 11:36:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494905816</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:36:56 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494905816',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494905816',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 11:36:56 response :
+------------
+
+2017-05-16 11:59:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494907199</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 11:59:59 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494907199',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494907199',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 12:00:00 response :
+------------
+
+2017-05-16 12:00:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494907204</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 12:00:05 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494907204',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494907204',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 12:00:05 response :
+------------
+
+2017-05-16 12:00:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494907241</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 12:00:41 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494907241',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494907241',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 12:00:41 response :
+------------
+
+2017-05-16 13:26:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494912385</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:26:25 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494912385',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494912385',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:26:25 response :
+------------
+
+2017-05-16 13:52:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494913970</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:52:50 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494913970',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494913970',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:52:50 response :
+------------
+
+2017-05-16 13:57:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:57:37 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914257',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914257',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&eid=2313',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:57:37 response :
+------------
+
+2017-05-16 13:57:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914264</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:57:44 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914264',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914264',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:57:44 response :
+------------
+
+2017-05-16 13:58:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914303</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:58:23 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914303',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914303',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:58:23 response :
+------------
+
+2017-05-16 13:58:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914308</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=home&]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 13:58:29 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914308',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=home&',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914308',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 13:58:29 response :
+------------
+
+2017-05-16 14:01:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914511</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-16 14:03:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914596</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-16 14:03:16 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914596',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914596',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-16 14:03:16 response :
+------------
+
+2017-05-16 14:03:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914600</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:03:20 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914600',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914600',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:03:20 response :
+------------
+
+2017-05-16 14:04:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914653</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:04:13 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914653',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914653',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:04:13 response :
+------------
+
+2017-05-16 14:05:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914725</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:05:25 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914725',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914725',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:05:25 response :
+------------
+
+2017-05-16 14:07:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494914821</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:07:01 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494914821',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494914821',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:07:01 response :
+------------
+
+2017-05-16 14:20:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494915643</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:20:43 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494915643',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494915643',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:20:43 response :
+------------
+
+2017-05-16 14:21:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494915700</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:21:40 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494915700',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494915700',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:21:40 response :
+------------
+
+2017-05-16 14:22:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494915760</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 14:22:40 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494915760',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494915760',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 14:22:40 response :
+------------
+
+2017-05-16 16:39:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494923978</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430813624</MenuId>
+</xml>
+
+2017-05-16 16:39:38 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494923978',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430813624',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494923978',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 16:39:38 response :
+------------
+
+2017-05-16 16:42:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494924162</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 16:42:42 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494924162',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494924162',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 16:42:42 response :
+------------
+
+2017-05-16 16:51:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494924692</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 16:51:32 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494924692',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494924692',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 16:51:32 response :
+------------
+
+2017-05-16 16:53:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494924784</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 16:53:04 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494924784',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494924784',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 16:53:04 response :
+------------
+
+2017-05-16 17:16:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwndButv2eER8w15Lmz5pAVY]]></FromUserName>
+<CreateTime>1494926172</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 17:16:12 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwndButv2eER8w15Lmz5pAVY',
+    'createtime' => '1494926172',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwndButv2eER8w15Lmz5pAVY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494926172',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 17:16:12 response :
+------------
+
+2017-05-16 17:17:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494926254</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 17:17:35 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494926254',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494926254',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 17:17:35 response :
+------------
+
+2017-05-16 17:48:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494928104</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 17:48:24 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494928104',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494928104',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 17:48:24 response :
+------------
+
+2017-05-16 18:02:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494928922</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 18:02:02 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494928922',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494928922',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 18:02:02 response :
+------------
+
+2017-05-16 18:08:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494929339</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 18:08:59 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494929339',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494929339',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 18:08:59 response :
+------------
+
+2017-05-16 18:15:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494929749</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 18:15:49 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494929749',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494929749',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=commission',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 18:15:49 response :
+------------
+
+2017-05-16 18:17:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494929843</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430832295</MenuId>
+</xml>
+
+2017-05-16 18:17:23 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494929843',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430832295',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494929843',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-16 18:17:23 response :
+------------
+

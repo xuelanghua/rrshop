@@ -1,0 +1,73 @@
+{template 'common/header'}
+<div class="main">
+    <ul class="nav nav-tabs">
+        <li><a href="{php echo $this->createWebUrl('project');}">查看项目列表</a></li>
+        <li class="active"><a href="{php echo $this->createWebUrl('share', array('act' => 'lists'));}">红包分享记录</a></li>
+    </ul>
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site">
+                <input type="hidden" name="a" value="entry">
+                <input type="hidden" name="do" value="share">
+                <input type="hidden" name="m" value="fr_hb" />
+                <input name="token" type="hidden" value="{$_W['token']}" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">所属项目</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="project_id">
+                                <option value="">所有项目</option>
+                                {loop $projects $pro}
+                                <option value="{$pro['id']}"{if $pro['id'] == $project_id} selected="selected"{/if}>{$pro['title']}</option>
+                                {/loop}
+                        </select>
+                    </div>
+                    <div class=" col-xs-12 col-sm-2 col-lg-2">
+                        <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="padding-top:15px;"></div>
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                红包分享记录列表
+            </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>			
+                        <th>分享人昵称</th>
+                        <th>分享时间</th>
+                        <th>查看次数</th>
+                        <th>所属项目</th>
+                        <th style="text-align:center;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {if $list}
+                    {loop $list $row}
+                        <tr>
+                            <td>{php echo getNicknameByOpenid($row['share_openid']);}</td>
+                            <td>{php echo timeTostr($row['createtime']);}</td>
+                            <td>{$row['view']}</td>
+                            <td><a href="{php echo $this->createWebUrl('share', array('act' => 'lists', 'project_id' => $row['project_id']));}" title="查看该项目所有记录">{php echo getProjectTitle($row['project_id']);}</a></td>
+                            <td align="center">
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'view', 'id' => $row['project_id'], 'packet_id' => $row['packet_id']));}" title="查看红包详情"><i class="fa fa-comment-o"></i></a>
+                            </td>
+                        </tr>
+                    {/loop}
+                    {else}
+                        <tr>
+                            <td colspan="5" align='center'>暂无数据</td>
+                        </tr>
+                    {/if}
+                </tbody>
+            </table>
+            {$pager}
+        </div>
+    </div>
+</div>
+{template 'common/footer'}

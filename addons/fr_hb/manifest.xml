@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.efwww.com" versionCode="0.6,0.7,0.8">
+	<application setting="true">
+		<name><![CDATA[快销红包]]></name>
+		<identifie><![CDATA[fr_hb]]></identifie>
+		<version><![CDATA[3.01]]></version>
+		<type><![CDATA[activity]]></type>
+		<ability><![CDATA[快销红包]]></ability>
+		<description><![CDATA[快销红包]]></description>
+		<author><![CDATA[源聚城]]></author>
+		<url><![CDATA[http://www.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="红包项目" do="project" state="" direct="false" />
+			<entry title="红包领取记录" do="receive" state="" direct="false" />
+			<entry title="红包分享记录" do="share" state="" direct="false" />
+			<entry title="中奖记录" do="log" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[
+	CREATE TABLE IF NOT EXISTS `ims_fr_hb_packet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uniacid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公众号ID',
+  `project_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '项目ID',
+  `qrcid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '二维码ID',
+  `qrcurl` varchar(250) NOT NULL DEFAULT '' COMMENT '二维码图片url',
+  `money` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '红包金额',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '红包状态 -1：失效 0：未领取 1：已领取',
+  `start_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '红包生效时间',
+  `end_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '红包失效时间',
+  `createtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '红包生成时间',
+  `token` varchar(32) NOT NULL DEFAULT '' COMMENT '红包Token',
+  `isqrc` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '二维码图片是否生成 0：未生成 1：已生成',
+  `card_id`  varchar(200) NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_fr_hb_project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uniacid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公众号ID',
+  `title` varchar(200) NOT NULL DEFAULT '' COMMENT '项目标题',
+  `content` text NOT NULL COMMENT '项目介绍，宣传内容',
+  `numbers` int(11) unsigned NOT NULL COMMENT '项目红包数量',
+  `type` tinyint(4) unsigned NOT NULL DEFAULT '2' COMMENT '红包类型 1：积分； 2：余额； 3：微信零钱；',
+  `start_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '项目开始时间',
+  `end_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '项目结束时间',
+  `max_money` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '红包最大金额',
+  `min_money` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '红包最小金额',
+  `createtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '项目创建时间',
+  `share_title` varchar(200) NOT NULL DEFAULT '' COMMENT '分享标题',
+  `share_content` text NOT NULL COMMENT '分享描述',
+  `share_thumb` varchar(200) NOT NULL DEFAULT '' COMMENT '分享图标',
+  `share_type` tinyint(4) unsigned NOT NULL DEFAULT '2' COMMENT '分享奖励类型 1：积分； 2：余额； 3：微信零钱；',
+  `share_money` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '分享奖励金额',
+  `index_bg` varchar(255) NOT NULL DEFAULT '' COMMENT '红包背景图片',
+  `tips_bg` varchar(255) NOT NULL DEFAULT '' COMMENT '提示页面背景图片',
+  `draw_bg` varchar(255) NOT NULL DEFAULT '' COMMENT '抽奖页面背景图片',
+  `share_bg` varchar(255) NOT NULL DEFAULT '' COMMENT '分享提示图片',
+  `ewm_setting` text NOT NULL COMMENT '红包二维码设置参数',
+  `card_ids`  text NULL COMMENT '卡券ID',
+  `is_follow` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否需要关注才能领取红包',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_fr_hb_receive` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uniacid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公众号ID',
+  `project_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '项目ID',
+  `packet_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '红包ID',
+  `openid` varchar(100) NOT NULL DEFAULT '' COMMENT '领取红包用户openid',
+  `ip` varchar(100) NOT NULL DEFAULT '' COMMENT '领取用户IP地址',
+  `createtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '领取时间',
+  `status`  tinyint(1) UNSIGNED NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_fr_hb_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uniacid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '公众号ID',
+  `project_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '项目ID',
+  `packet_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '红包ID',
+  `share_openid` varchar(100) NOT NULL DEFAULT '' COMMENT '分享者用户openid',
+  `level` int(10) unsigned NOT NULL DEFAULT '0',
+  `openid` varchar(100) NOT NULL DEFAULT '' COMMENT '第一个打开用户的openid',
+  `ip` varchar(100) NOT NULL DEFAULT '' COMMENT '领取用户IP',
+  `receivetime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '领取时间',
+  `createtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分享时间',
+  `view` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '点击数',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE `ims_fr_hb_draw` (
+`id`  int NOT NULL AUTO_INCREMENT COMMENT '主键' ,
+`uniacid`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '公众号ID' ,
+`project_id`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '项目ID' ,
+`name`  varchar(200) NOT NULL COMMENT '奖品名称' ,
+`type`  tinyint(2) UNSIGNED NOT NULL DEFAULT 2 COMMENT '1:积分，2：余额，3：微信零钱' ,
+`prize`  decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00 COMMENT '奖品' ,
+`chance`  float(10,2) UNSIGNED NOT NULL DEFAULT 0.00 COMMENT '中奖概率' ,
+`numbers`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '奖品数量' ,
+`surplus` int(10) unsigned NOT NULL DEFAULT '0',
+`status`  tinyint(1) UNSIGNED NOT NULL DEFAULT '0'  ,
+`draw`  tinyint(1) UNSIGNED NOT NULL DEFAULT '0'  ,
+`sort` int(10) unsigned NOT NULL DEFAULT '0',
+PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE `ims_fr_hb_draw_log` (
+`id`  int NOT NULL AUTO_INCREMENT ,
+`uniacid`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '公众号ID' ,
+`project_id`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '项目ID' ,
+`packet_id`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '红包ID' ,
+`draw_id`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '奖品ID' ,
+`openid`  varchar(200) NOT NULL COMMENT '中奖用户OPENID' ,
+`share_openid`  varchar(200) NOT NULL COMMENT '分享用户OPENID' ,
+`createtime`  int UNSIGNED NOT NULL DEFAULT 0 COMMENT '中奖时间' ,
+`status`  tinyint(1) UNSIGNED NULL DEFAULT '0',
+PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+	]]></install>
+	<uninstall><![CDATA[
+	DROP TABLE `ims_fr_hb_packet`, `ims_fr_hb_project`, `ims_fr_hb_receive`, `ims_fr_hb_share`, `ims_fr_hb_draw`, `ims_fr_hb_draw_log`;
+
+	]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

@@ -1,0 +1,53 @@
+感谢您使用由易福源码网整理的微赞安装程序，本程序包版本为微赞第三方微信公众共平源码WZ_V98.0版本20170504程序整合包
+
+友情提示：没有100%没有BUG的程序，如果没有BUG系统何须更新。本程序随官方同步更新，使用中有任何问题请至论坛留言，我们将汇总进行解决并向官方进行反馈处理。
+
+【1】程序安装请参照：http://www.efwww.com/thread-40-1-1.html
+
+【2】本版本已整合含有IC9加密模块，部分模块虚拟主机无法使用，独立主机请安装IC9组件后再安装（C9组件下载及使用方法：http://www.zentao.net/book/zentaoprohelp/194.html#1）。
+
+【3】微赞部分模块提示：该模块不是在微赞官方论坛安装的解决办法：http://www.efwww.com/forum.php?mod=viewthread&tid=968&extra=page%3D1
+
+【4】程序更新教程：http://efwww.com/forum.php?mod=viewthread&tid=1013&extra=page%3D1mod=viewthread&tid=1013，需要使用一键更新请至论坛申请，注意看一键更新版块的置顶贴说明：http://www.efwww.com/forum-52-1.html
+
+【5】安装环境需求：
+
+程序环境最低要求：PHP 5.4， MYSQL 5.3-5.6，OPENSSL必须开启（开启方式：http://www.efwww.com/thread-62-1-1.html）
+
+必须使用独立主机！部分nginx、LIUNX服务器无法使用（出现首页或部分内部空白），使用LIUNX系统需设置777权限。
+
+建议使用windows配合phpStudy进行环境搭建！程序只能在根目录下运行，二级目录无法运行！
+
+易福源码网测试环境为：WINDOWS2003/2008  Apache 2.4.10  PHP 5.4.33  MYSQL 5.5.40
+
+【6】安装方式：
+将源码压缩包解压至根目录
+找到源码根目录下data，打开后修改config.php（建议使用DREAMWEAVER、Notepad进行修改，切记不要使用文本修改，否则将导致程序无法运行）
+
+       $config['db']['host'] = '127.0.0.1';    127.0.0.1改成你的数据库IP或者网址
+       $config['db']['username'] = 'root';     root修改成你的数据库帐号
+       $config['db']['password'] = 'root';     root修改成你的数据库密码
+       $config['db']['port'] = '3306';
+       $config['db']['database'] = 'weizan';   这里weizan修改成你的数据库名称
+       $config['db']['charset'] = 'utf8';
+       $config['db']['pconnect'] = 0;
+       $config['db']['tablepre'] = 'ims_';
+
+数据库导入建议使用Navicat，下载地址：http://www.efwww.com/forum.php?mod=viewthread&tid=106，本软件为傻瓜式软件，比较简单，连接上数据库后运行SQL就可以，也可以用PHPMYADMIN进行导入、
+
+访问网站域名，使用管理帐号admin密码www.efwww.com直接登陆即可，管理员和普通会员均在同一登陆口登陆，登陆进去，管理员帐号将有管理功能菜单。
+登陆后台——系统——系统管理——站点设置，设置好你网站的域名和网站信息，后点击更新缓存即可。以上就完成了微赞的安装。
+
+【7】安装注意事项：
+1、微赞只能在根目录下安装，二级目录下无法使用。
+2、程序环境必须在PHP5.4以上，MYSQL 5.3以上，否则将无法使用本程序。
+3、必须开启OPENSSL和443端口，否则无法正常使用微赞程序
+4、如果安装后首页出现空白页，请检查数据库文件CONFIG.PHP是否填写正确，数据库在本机必须使用127.0.0.1（WIN）或localhost（LIUNX），不得使用外网IP。
+5、安装好后首页不空白，内部部分页面出现空白页，是由于服务器环境造成的，请更换服务器环境。
+6、安装成功后禁止使用后台的云服务（默认安装后已经隐藏）！！
+
+【8】安装好以后点击首页右上角会员登陆即可，默认用户名admin，默认密码www.efwww.com
+可到登录管理帐号查看后台“系统信息”更新记录，如果版本不是最新版，可至http://www.efwww.com/forum-41-1.html下载更新版安装即可。
+
+
+易福源码网祝你使用愉快！

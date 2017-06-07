@@ -1,0 +1,575 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+  <li {if $operation == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('category', array('op' => 'post'))}">添加防伪码类别</a></li>
+  <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('category', array('op' => 'display'))}">管理防伪码类别</a></li>
+</ul>
+<script>
+require(['bootstrap'],function($){
+	$('.btn').hover(function(){
+		$(this).tooltip('show');
+	},function(){
+		$(this).tooltip('hide');
+	});
+});
+</script> 
+<script language="javascript" src="{MODULE_URL}template/js/bootstrap-tooltip.js"></script> 
+<script language="javascript" src="{MODULE_URL}template/js/bootstrap-popover.js"></script> 
+{if $operation == 'post'}
+<style>
+.jpanel .panel-heading {position:relative;}
+.jpanel .panel-collapse {width:50px;height:38px;line-height:38px;position:absolute;top:0;right:0;color: #CCC;text-align: center;background: #EEE;border-left: 1px #DDD solid;}
+</style>
+<div class="main">
+  <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+    <div class="panel panel-default jpanel">
+      <div class="panel-heading">
+        <h4 class="panel-title">功能按钮</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-0"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-0">
+      	<div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+          <div class="col-sm-9 col-xs-12">
+            <a href="{php echo $this->createWebUrl('joiner',array('pcate'=>$id))}" target="_blank" class="btn btn-default">参与情况</a>
+            <a href="{php echo $this->createWebUrl('burning',array('pcate'=>$id))}" target="_blank" class="btn btn-info">核销后台</a>
+            <a href="{php echo $this->createWebUrl('lucky',array('pcate'=>$id,'op'=>'display'))}" target="_blank" class="btn btn-success">现场抽奖</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading"> 基础设置 </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color:red">*</span>防伪码类别名称</label>
+          <div class="col-sm-9 col-xs-12">
+            <input type="text" name="title" class="form-control" required value="{$category['title']}" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">状态</label>
+          <div class="col-sm-9">
+            <label class="radio-inline">
+              <input type="radio" name="status" value="0" {if $category['status'] == 0 } checked{/if} />
+              关闭</label>
+            <label class="radio-inline">
+              <input type="radio" name="status" value="1" {if $category['status'] == 1} checked{/if} />
+              开启</label>
+            <div class="help-block"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">生成方式</label>
+          <div class="col-sm-9 col-xs-12">
+            <label class="radio-inline">
+              <input type="radio" name="codetype" value="0" {if $category['codetype'] == 0 } checked{/if} />
+              普通二维码</label>
+            {if $_W['uniaccount']['level']==4}
+            <label class="radio-inline">
+              <input type="radio" name="codetype" value="1" {if $category['codetype'] == 1 } checked{/if} />
+              临时二维码</label>
+            <label class="radio-inline">
+              <input type="radio" name="codetype" value="2" {if $category['codetype'] == 2 } checked{/if} />
+              永久二维码</label>
+            {/if}
+            <div class="help-block">【普通二维码】不限数量，不限时间，订阅号可用，但是必须扫描2次【订阅号服务号均可】；【临时二维码】有效期1-30天，只需扫1次【仅服务号】；【永久二维码】最多100万个，无限时间，只需扫1次【仅服务号】</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">活动时间</label>
+          <div class="col-sm-9 form-inline"> {php echo tpl_form_field_date('starttime', date('Y-m-d H:i:s',empty($category['starttime'])?time():$category['starttime']), true)} ~ 
+            {php echo tpl_form_field_date('endtime', date('Y-m-d H:i:s',empty($category['endtime'])?time()+3600*240:$category['endtime']), true)} </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">扫码方式</label>
+          <div class="col-sm-9 col-xs-12">
+            <label class="radio-inline">
+              <input type="radio" name="scantype" value="0" {if $category['scantype'] == 0 } checked{/if} />
+              客户扫描</label>
+            <label class="radio-inline">
+              <input type="radio" name="scantype" value="1" {if $category['scantype'] == 1 } checked{/if} />
+              门票/凭证模式</label>
+            <div class="help-block">【客户扫描】认证的订阅号和服务号均可使用，首次扫码将去一键关键，在公众号启动扫描后，获得结果。【门票/凭证模式】即管理员扫描，适用于将二维码作为门票，优惠券等情况。</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">关注连接</label>
+          <div class="col-sm-9 col-xs-12">
+            <input type="text" name="link" class="form-control"  value="{$category['link']}" />
+            <div class="help-block">如使用【基本二维码】，请用其他二维码扫描器扫描公众号的二维码，如http://weixin.qq.com/r/lkNWTrnEbOQTrf0t9xaE；并填写到上述输入框中</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">自定义参数</label>
+          <div class="col-sm-9 form-inline">
+            <div id="parama"></div>
+            <a href="javascript:addparama()"><i class="icon-plus-sign-alt"></i> 添加</a>
+            <div class="help-block">如，商品名称，年份等</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <h4 class="panel-title">游戏模式</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-2"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-2">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">扫码方式</label>
+          <div class="col-sm-9 col-xs-12">
+            <label class="radio-inline">
+              <input type="radio" name="playtype" value="0" {if $category['playtype'] == 0 } checked{/if} />
+              普通模式</label>
+            <label class="radio-inline">
+              <input type="radio" name="playtype" value="1" {if $category['playtype'] == 1 } checked{/if} />
+              资料输入模式</label>
+            <label class="radio-inline">
+              <input type="radio" name="playtype" value="2" {if $category['playtype'] == 2 } checked{/if} />
+              答题模式</label>
+            <div class="help-block">【普通模式】扫描后，返回结果；【资料输入模式】扫描后，返回问题，要求客户输入资料后，返回结果。【答题模式】扫描后，返回问题，客户需要输入正确答案方能得到奖励</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">首次扫描欢迎语</label>
+          <div class="col-sm-9 col-xs-12">
+            <textarea name="welcome" cols="70" rows="8" class="form-control">{$category['welcome']}</textarea>
+            <div class="help-block">首次扫描欢迎语</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">答题限时</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <div class="input-group ">
+              <input type="number" name="replytime"  style="width:90px" class="form-control"  value="{php echo intval($category['replytime'])}" />
+              <span class="input-group-addon">分钟</span> </div>
+            <div class="help-block">在答题模式下，限制用户回答时间。超时后，其他用户可扫描回答。</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">回复提示内容</label>
+          <div class="col-sm-9 col-xs-12">
+          	<div id="argument"></div>
+            <a href="javascript:addargument()"><i class="icon-plus-sign-alt"></i> 添加</a>
+            <div class="help-block">本内容仅在【资料输入模式】和【答题模式】下有效。【资料输入模式】左栏是字段名称，如姓名，电话；右栏则输入提示内容，如“请输入您的姓名”；【答题模式】左栏是问题，右栏则是答案</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-heading">
+        <h4 class="panel-title">集码设置</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-2"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-2">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">设置</label>
+          <div class="col-sm-9 col-xs-12">
+            <label class="radio-inline">
+              <input type="radio" name="collecttype" value="0" {if $category['collecttype'] == 0 } checked{/if} />
+              无要求</label>
+            <label class="radio-inline">
+              <input type="radio" name="collecttype" value="1" {if $category['collecttype'] == 1 } checked{/if} />
+              收集指定码</label>
+            <label class="radio-inline">
+              <input type="radio" name="collecttype" value="2" {if $category['collecttype'] == 2 } checked{/if} />
+              按顺序收集指定码</label>
+            <div class="help-block">【收集指定码】</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">码类别设置</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <div id="collect">
+            {if $category['collectorder']}
+            {php $collectlist=@explode(',',$category['collectorder'])}
+            {loop $collectlist $row}
+            <div><input class='form-control' name='collectorder[]' value="{$row}" required placeholder='类别内容'/> <a href='javascript:delcollect(this)'><i class='glyphicon glyphicon-remove-circle'></i></a></div>
+            {/loop}
+            {/if}
+            </div>
+            <a href="javascript:addcollect()"><i class="icon-plus-sign-alt"></i> 添加</a>
+            <div class="help-block">【】</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <h4 class="panel-title">奖励设置</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-2"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-2">
+      	<div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包设置</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            {if empty($redpacklist)}
+            请添加红包
+            {else}
+            可用红包
+            {loop $redpacklist $row}
+            <span style="color:#F00">|#红包{$row['id']}#|</span>，
+            {/loop}
+            {/if}
+            <div class="help-block">将上述内容放置到回复中即可得到红包</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">跳转链接</label>
+          <div class="col-sm-9 col-xs-12">
+            <input type="text" name="url" class="form-control"  value="{$category['url']}" />
+            <div class="help-block">跳转时候的链接，系统将自动加上jcode参数，后面是通过urlencode的加密内容</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">跳转链接文字</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <input type="text" name="urlword" class="form-control"  value="{$category['urlword']}" />
+            <div class="help-block">跳转时候的文字，长度为50个字符，25个中文字</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">获得积分</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <input type="text" name="credits" class="form-control"  value="{$category['credits']}" />
+            <div class="help-block">扫码可获积分</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">发送微信卡券</label>
+          <div class="col-sm-9 col-xs-12">
+          	<div id="wxcard"></div>
+            <a href="javascript:addwxcard()"><i class="icon-plus-sign-alt"></i> 添加</a>
+            <div class="help-block">请先到【粉丝营销】-【微信卡券】中生成微信卡券，然后填写卡券中的【卡券id】。<a href="./index.php?c=wechat&a=account" target="_blank">添加卡券</a></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">注意</label>
+          <div class="col-sm-9 col-xs-12">
+            发红包和发卡券的时候，请注意，不要同时发送2个。每次发送1个！因为发送卡券和红包都是通过API接口的，在执行时比较花时间。而回复时间必须在5秒内，否则则会提示无法服务。
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <h4 class="panel-title">参与设置</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-3"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-3">
+        <div class="form-group form-inline">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">参与人员限制</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <label><input type="radio" name="gametype" value="0" {if $category['gametype'] == 0 } checked{/if}/>
+              任何人</label>
+            <label><input type="radio" name="gametype" value="1" {if $category['gametype'] == 1 } checked{/if}/>
+              指定人群</label>
+            <div class="help-block">【任何人】所有人可参与；【指定人群】需要上传指定人群的openid；</div>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">指定级别</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+          <label class="radio-inline">
+            <input type="checkbox" name="grouptype[]" value="0" {if !$category['grouptype']} checked{/if} />
+            不限制</label>
+            {loop $grouplist $row}
+          <label class="radio-inline">
+            <input type="checkbox" name="grouptype[]" value="{$row['groupid']}"  {if in_array($row['groupid'],$groupary)}checked{/if} />
+            {$row['title']}</label>
+          {/loop}
+            <div class="help-block">跳转时候的文字，长度为50个字符，25个中文字</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">限定名单</label>
+          <div class="col-sm-9 col-xs-12">
+            {if empty($category)}
+            需要在修改时才能上传文件。
+            {else}
+            <button type="button" class="btn btn-default" onClick="$('#csvfile').click();">上传csv格式文件</button>
+            <input type="file" name="csvfile" id="csvfile" style="display:none;">
+            <div class="help-block"><a href="{MODULE_URL}template/js/temp.csv" target="_blank">下载数据模板</a></div>
+            {/if}
+          </div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <h4 class="panel-title">回复设置</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-4"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-4">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">替换字段介绍</label>
+          <div class="col-sm-9 col-xs-12 form-inline">
+            <table width="90%">
+              <tr>
+                <th style="border:#CCC 1px solid;padding:5px">字段</th>
+                <th style="border:#CCC 1px solid;padding:5px">示范</th>
+                <th style="border:#CCC 1px solid;padding:5px">备注</th>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px; background:#DDD" colspan="3"><strong>系统自带抽奖</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#跳转链接#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">跳转链接文字</td>
+                <td style="border:#CCC 1px solid;padding:5px">必须填写【跳转链接】及【跳转链接文字】方能生效，添加后，客户可点击跳转。</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px; background:#DDD" colspan="3"><strong>奖励类</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#发积分#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">发积分</td>
+                <td style="border:#CCC 1px solid;padding:5px">发放积分</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">发卡券</td>
+                <td style="border:#CCC 1px solid;padding:5px">微信卡券</td>
+                <td style="border:#CCC 1px solid;padding:5px">|#你填写的卡券名称#|,即可向扫描用户发送指定的卡券</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px; background:#DDD" colspan="3"><strong>查询类</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#查询次数#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">1</td>
+                <td style="border:#CCC 1px solid;padding:5px">返回该二维码被扫描次数</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">自定义参数</td>
+                <td style="border:#CCC 1px solid;padding:5px">|#商品名称#|，捷讯大礼包</td>
+                <td style="border:#CCC 1px solid;padding:5px">在【自定义参数】中设置字段名称，即返回该自定义参数的内容</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#扫码数量#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">9</td>
+                <td style="border:#CCC 1px solid;padding:5px">返回同一个客户扫描了多少个不同的二维码</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#剩余码数#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">9</td>
+                <td style="border:#CCC 1px solid;padding:5px">如填写了【扫码N个后回复模板】中的数量，即返回客户还需要扫描多少个不一样的二维码</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px;background:#DDD" colspan="3"><strong>用户资料</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#昵称#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">小黑</td>
+                <td style="border:#CCC 1px solid;padding:5px">返回扫码人的昵称</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#持有人昵称#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">小黑</td>
+                <td style="border:#CCC 1px solid;padding:5px">在非首次扫描下，返回该二维码被谁扫描了。主要用于【非本人二次扫描回复】</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px;background:#DDD" colspan="3"><strong>集码类</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#码类别#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">A/B/C</td>
+                <td style="border:#CCC 1px solid;padding:5px">返回该二维码的类别</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#需要收集码#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">A,B,C</td>
+                <td style="border:#CCC 1px solid;padding:5px">在集码活动中，返回需要收集的所有码的类别</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#已收集码#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">A,B,C</td>
+                <td style="border:#CCC 1px solid;padding:5px">在集码活动中，返回已经收集的码的类别</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px">|#未收集码#|</td>
+                <td style="border:#CCC 1px solid;padding:5px">A,B,C</td>
+                <td style="border:#CCC 1px solid;padding:5px">在集码活动中，返回未被收集的码的类别</td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px;background:#DDD" colspan="3"><strong>其他</strong></td>
+              </tr>
+              <tr>
+                <td style="border:#CCC 1px solid;padding:5px" colspan="3">所有回复均支持html字符，如a标签。即&lt;a href=&quot;连接地址&quot;&gt;点击跳转&lt;/a&gt;</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">首次回复</label>
+          <div class="col-sm-9 col-xs-12">
+            <textarea name="content" cols="70" rows="8" class="form-control">{$category['content']}</textarea>
+            <div class="help-block">二维码首次被扫描时回复。</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">非首次回复</label>
+          <div class="col-sm-9 col-xs-12">
+            <textarea name="content2" cols="70" rows="8" class="form-control">{$category['content2']}</textarea>
+            <div class="help-block">同一用户，扫描同一个二维码时的回复</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">他人扫码回复</label>
+          <div class="col-sm-9 col-xs-12">
+            <textarea name="content3" cols="70" rows="8" class="form-control">{$category['content3']}</textarea>
+            <div class="help-block">当扫描一个已经被其他人扫描过的二维码时的回复</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">扫码N个后回复</label>
+          <div class="col-sm-9 col-xs-12  form-inline">
+            <div class="input-group ">
+              <input type="text" name="scantimevent"  style="width:90px" maxlength="3" class="form-control"  value="{php echo intval($category['scantimevent'])}" />
+              <span class="input-group-addon">次</span> </div>
+            <textarea name="content4" style="width:100%; margin-top:10px;" rows="8" class="form-control">{$category['content4']}</textarea>
+            <div class="help-block">单个用户扫描N个码后的回复。注意，0为不设置，如果要设置，必须是大于等于2</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">可扫码数量</label>
+          <div class="col-sm-9 col-xs-12  form-inline">
+            <div class="input-group ">
+              <input type="text" name="jointime"  style="width:90px" maxlength="3" class="form-control"  value="{php echo intval($category['jointime'])}" />
+              <span class="input-group-addon">次</span> </div>
+            <div class="help-block">单个用户最多可扫码数量</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">超出可扫码时回复</label>
+          <div class="col-sm-9 col-xs-12  form-inline">
+            <textarea name="content5" style="width:100%; margin-top:10px;" rows="8" class="form-control">{$category['content5']}</textarea>
+            <div class="help-block">当单个用户扫码数量大于【可扫码数量】时出现</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-xs-12">
+      <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+      <input type="hidden" name="token" value="{$_W['token']}" />
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+var i=0;
+function addparama(){
+	var temp="<div><label dd='"+i+"' class='form-inline'><input class='form-control' name='parama-key-new["+i+"]' required placeholder='键'/> <a href='javascript:del("+i+")'><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+	$("#parama").append(temp);
+	i++;
+}
+oparama="{$category['parama']}";
+addOldparama(oparama);
+function addOldparama(paramas){
+	if(paramas.length<1)return;
+	parama=paramas.split("|#|");
+	if(parama.length<1)return;
+	for(var k=0;k<parama.length;k++) {
+		if(!parama[k])return;
+		temp="<div><label ddold='"+parama[k]+"' class='form-inline' ><input class='form-control' name='parama-key["+parama[k]+"]' required value='"+parama[k]+"' placeholder='键'/> ";
+		temp+="<a href=\"javascript:delo('"+parama[k]+"')\"><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+		$("#parama").append(temp);
+	}
+}
+function del(obj){
+	$("label[dd='"+obj+"']").remove();
+}
+function delo(obj){
+	$("label[ddold='"+obj+"']").remove();
+}
+//--
+var j=0;
+function addwxcard(){
+	var temp="<div><label wx='"+j+"' class='form-inline'><input class='form-control' name='wxcard-key-new["+j+"]' required placeholder='字段名'/>:<input class='form-control' name='wxcard-val-new["+j+"]' required placeholder='卡券ID'/> <a href='javascript:delwx("+j+")'><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+	$("#wxcard").append(temp);
+	j++;
+}
+oparamawxcard="{$category['wxcard']}";
+addOldwxcard(oparamawxcard);
+function addOldwxcard(parama){
+	if(parama.length<1)return;
+	var list=parama.split("|##|");
+	list_key=list[0].split("|#|");
+	list_val=list[1].split("|#|");
+	if(list_key.length<1)return;
+	for(var k=0;k<list_key.length;k++) {
+		if(!list_key[k])return;
+		var temp="<div><label wxold='"+list_key[k]+"' class='form-inline' ><input class='form-control' name='wxcard-key["+list_key[k]+"]' required value='"+list_key[k]+"' placeholder='字段名'/>:<input class='form-control' name='wxcard-val["+list_key[k]+"]' required value='"+list_val[k]+"' placeholder='卡券ID'/> ";
+		temp+="<a href=\"javascript:delwxo('"+list_key[k]+"')\"><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+		$("#wxcard").append(temp);
+	}
+}
+function delwx(obj){
+	$("label[wx='"+obj+"']").remove();
+}
+function delwxo(obj){
+	$("label[wxold='"+obj+"']").remove();
+}
+//------------
+var l=0;
+function addargument(){
+	var temp="<div><label arg='"+l+"' class='form-inline'><input class='form-control' name='argument-key-new["+l+"]' required placeholder='左栏'/>:<input class='form-control' name='argument-val-new["+l+"]' placeholder='右栏'/> <a href='javascript:delwxargument("+l+")'><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+	$("#argument").append(temp);
+	l++;
+}
+oparamaargument={if $category['argument']}{$category['argument']}{else}""{/if};
+addOldargument(oparamaargument);
+function addOldargument(parama){
+	if(parama.length<4)return;
+	var k=0;
+	for(var i in parama){
+		var temp="<div><label argold='"+k+"' class='form-inline' ><input class='form-control' name='argument-key["+k+"]' required value='"+i+"' placeholder='左栏'/>:<input class='form-control' name='argument-val["+k+"]' value='"+parama[i]+"' placeholder='右栏'/><a href=\"javascript:delwxargumento('"+k+"')\"><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+		$("#argument").append(temp);
+		k++;
+	}
+}
+function delwxargument(obj){
+	$("label[arg='"+obj+"']").remove();
+}
+function delwxargumento(obj){
+	$("label[argold='"+obj+"']").remove();
+}
+//------------------
+//-----------------
+function addcollect(){
+	var temp="<div><input class='form-control' name='collectorder[]' required placeholder='类别内容'/> <a href='javascript:void(0)'><i class='glyphicon glyphicon-remove-circle'></i></a></div>";
+	$("#collect").append(temp);
+	$("#collect a").on('click',function(){
+		$(this).parent('div').remove();
+	})
+}
+$("#collect a").on('click',function(){
+	$(this).parent('div').remove();
+})
+</script> 
+{elseif $operation == 'display'}
+<div class="main">
+  <div class="category">
+    <form action="" method="post" onsubmit="return formcheck(this)">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width:30px;"></th>
+                <th>防伪码类别名称</th>
+                <th>时间</th>
+                <th>属性</th>
+                <th>状态</th>
+                <th style="text-align:right">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {loop $category $row}
+            <tr>
+              <td><a href="javascript:;"><i class="fa fa-chevron-down"></i></a></td>
+              <td>{$row['title']}</td>
+              <td><span class="label label-info">开始：{php echo date('m/d H:i',$row['starttime'])}</span><br>
+                <span class="label label-info">结束：{php echo date('m/d H:i',$row['endtime'])}</span></td>
+              <td>{php echo str_replace("|#|",",",$row['parama'])}</td>
+              <td>{if $row['status']}<span class="label label-success">开启</span>{else}<span class="label label-default">关闭</span>{/if}</td>
+              <td style="text-align:right"><a href="{php echo $this->createWebUrl('code', array('pcate' => $row['id']))}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="管理防伪码"><i class="fa fa-plus"></i></a>&nbsp;&nbsp;<a href="{php echo $this->createWebUrl('category', array('op' => 'post', 'id' => $row['id']))}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="编辑"><i class="fa fa-edit"></i></a>&nbsp;&nbsp; <a href="{php echo $this->createWebUrl('category', array('op' => 'delete', 'id' => $row['id']))}" onclick="return confirm('确认删除此防伪码类别吗？');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-times"></i></a></td>
+            </tr>
+            {/loop}
+            <tr>
+              <td></td>
+              <td colspan="3"><a href="{php echo $this->createWebUrl('category',array('op'=>'post'))}"><i class="icon-plus-sign-alt"></i>添加</a></td>
+            </tr>
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{/if}
+{template 'common/footer'} 

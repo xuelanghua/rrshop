@@ -1,0 +1,25 @@
+{template 'header'}
+{if $qrcode}
+<div class="qrcode-area text-center">
+
+
+    <img src="{$qrcode}" style="width:60%;margin-top:50px;" />
+    <h4 class="text-center" style="color:#434343;font-size: 16px;">您有奖品未领取，长按二维码扫描领取</h4>
+    <div style="font-size:16px;width:85%; border-radius:0;padding:20px 5px; margin:30px auto;background:#ff9600;color:white;"><a href="javascript:;" style=" color:#fff; text-decoration:none;" class="fr_share">温馨提示：此页面发送给好友可获得奖品</a></div>
+</div>
+{else}
+<div class="w" style="background-image:url({$tips_bg});">
+    <div style="position:absolute; font-size:16px; top:30px; width:100%; text-align:center; color:#FFF;">{$tips}</div>
+</div>
+{/if}
+<script type="text/javascript">
+sharedata = {
+    success : function(res) {
+        var url = "{php echo __MURL('share', array('token' => $token), true);}";
+	$.post(url, function(dat){
+            //alert(dat);
+        });
+    }
+}
+</script>
+{template 'footer'}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>红包领取页面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body>
+<form class="uk-form uk-margin-top uk-width-medium-1-3" method="post" action="">
+            <fieldset>
+                <div class="uk-form-row">
+                    <input type="text" name="code" class="uk-width-1-1 uk-form-large" placeholder="请输入验证码">
+                </div>
+                <div class="uk-form-row">
+					<input type="hidden" name="token" value="{$_W['token']}"/>
+                    <input type="hidden" name="rid" value="{$rid}"/>
+                    <input type="submit" name="submit" value="领取红包" class="uk-button uk-width-1-1 uk-button-large uk-button-success">
+                </div>
+            </fieldset>
+        </form>
+        <style>
+		*{ margin:0; padding:0; font-family:Microsoft Yahei;}
+		body,html{ height:100%; width:100%;}
+		body{ background:url({php echo tomedia($picurl)}) no-repeat center center; background-size:100% 100%;}
+.uk-margin-top { position:absolute;top: 50%;margin-top:-50px; width:80%; left:10%;}
+.uk-form > :last-child { margin-bottom: 0;}
+.uk-form fieldset {border: none;margin: 0;padding: 0;}.uk-form input:not([type="radio"]):not([type="checkbox"]), .uk-form select {
+    vertical-align: middle;}
+select.uk-form-large, textarea.uk-form-large, input[type].uk-form-large, input:not([type]).uk-form-large {
+    height: 40px;padding: 8px 6px;font-size: 16px;}.uk-form input, .uk-form select, .uk-form textarea {
+    box-sizing: border-box;margin: 0;border-radius: 0;font: inherit;color: inherit;}
+.uk-button-large {
+    min-height: 40px;padding: 0 15px;line-height: 38px;font-size: 16px;border-radius: 5px;}
+.uk-button-success {
+    background-color: #82bb42;color: #ffffff;background-image: -webkit-linear-gradient(top, #9fd256, #6fac34);background-image: linear-gradient(to bottom, #9fd256, #6fac34);border-color: rgba(0, 0, 0, 0.2);border-bottom-color: rgba(0, 0, 0, 0.4);text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);}
+.uk-button {
+    -webkit-appearance: none;margin: 0;border: none;overflow: visible;font: inherit;color: #444444;text-transform: none;display: inline-block;box-sizing: border-box;padding: 0 12px;background: #f7f7f7;vertical-align: middle;line-height: 28px;min-height: 30px;font-size: 1rem;text-decoration: none;text-align: center;border: 1px solid rgba(0, 0, 0, 0.2);border-bottom-color: rgba(0, 0, 0, 0.3);background-origin: border-box;background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);background-image: linear-gradient(to bottom, #ffffff, #eeeeee);border-radius: 4px;text-shadow: 0 1px 0 #ffffff;}
+.uk-width-1-1 {
+    width: 100%;}
+	.uk-form-row{ margin-bottom:5px;}
+        </style>
+</body>
+</html>

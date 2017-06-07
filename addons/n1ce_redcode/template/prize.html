@@ -1,0 +1,49 @@
+{template 'common/header'}
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="{php echo $this->createWebUrl('prize',array('pici' => $pici))}">奖品列表</a></li>
+    <li><a href="{php echo $this->createWebUrl('prizeadd',array('pici' => $pici))}">添加奖品</a></li>
+</ul>
+
+<div class="main">
+	<div class="category">
+	<div class="panel panel-default">
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th width="150">奖品类型</th>
+                            <th width="150">数量</th>
+                            <th width="150">概率</th>
+                            <th width="150">提交时间</th>
+                            <th width="150">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $list $row}
+                        <tr>
+                            <td>
+                                {$row['name']}
+                            </td>
+                            <td>{$row['prizesum']}</td>
+                            <td>
+                                {$row['prizeodds']}%
+                            </td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['time'])}</td>
+							
+                            <td>
+								<a href="{php echo $this->createWebUrl('prizeedits', array('op' => 'edits', 'pici' => $row['pici'],'id' => $row['id']))}" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i> 编辑奖品</a>
+                               <a href="{php echo $this->createWebUrl('prize', array('op' => 'delete', 'pici' => $row['pici'],'id' => $row['id']))}" onclick="return confirm('确认删除吗，删除后，不可恢复？');return false;" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-times"></i> 删除奖品</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+	</div>
+
+</div>
+{$pager}
+
+{template 'common/footer'}

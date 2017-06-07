@@ -1,0 +1,2606 @@
+2017-05-12 00:25:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494519905</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430761848</MenuId>
+</xml>
+
+2017-05-12 00:25:05 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494519905',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430761848',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494519905',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:25:05 response :
+------------
+
+2017-05-12 00:28:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520111</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430761848</MenuId>
+</xml>
+
+2017-05-12 00:28:31 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520111',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430761848',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520111',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:28:31 response :
+------------
+
+2017-05-12 00:28:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520116</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>430761848</MenuId>
+</xml>
+
+2017-05-12 00:28:36 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520116',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'menuid' => '430761848',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520116',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:28:36 response :
+------------
+
+2017-05-12 00:28:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520139</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 00:28:59 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520139',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520139',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:28:59 response :
+------------
+
+2017-05-12 00:33:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520385</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 00:35:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520556</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 00:35:56 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520556',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520556',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-12 00:35:56 response :
+------------
+
+2017-05-12 00:36:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520574</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 00:36:14 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520574',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520574',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:36:14 response :
+------------
+
+2017-05-12 00:36:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494520610</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 00:36:50 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494520610',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494520610',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 00:36:50 response :
+------------
+
+2017-05-12 08:31:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494549065</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 08:31:05 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494549065',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494549065',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 08:31:05 response :
+------------
+
+2017-05-12 09:20:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494552031</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 09:20:31 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494552031',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494552031',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 09:20:31 response :
+------------
+
+2017-05-12 09:38:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494553114</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 09:38:34 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494553114',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494553114',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 09:38:34 response :
+------------
+
+2017-05-12 09:43:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494553388</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 09:43:08 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494553388',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494553388',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 09:43:08 response :
+------------
+
+2017-05-12 09:59:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlriY2Z3PueZjt5WhMKOBzA]]></FromUserName>
+<CreateTime>1494554375</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 09:59:36 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'createtime' => '1494554375',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlriY2Z3PueZjt5WhMKOBzA',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494554375',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 09:59:36 response :
+------------
+
+2017-05-12 09:59:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494554380</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 09:59:40 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494554380',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494554380',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-12 09:59:40 response :
+------------
+
+2017-05-12 10:02:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsVcZmfu49O6Z61ZpGgNf3U]]></FromUserName>
+<CreateTime>1494554536</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 10:02:16 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'createtime' => '1494554536',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwsVcZmfu49O6Z61ZpGgNf3U',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494554536',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 10:02:16 response :
+------------
+
+2017-05-12 11:00:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494558018</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419077809715350820</MsgId>
+</xml>
+
+2017-05-12 11:00:19 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494558018',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419077809715350820',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494558018',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:00:19 response :
+------------
+
+2017-05-12 11:01:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494558107</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 11:01:47 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494558107',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494558107',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-12 11:01:47 response :
+------------
+
+2017-05-12 11:01:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494558110</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 11:01:50 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494558110',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494558110',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 11:01:50 response :
+------------
+
+2017-05-12 11:02:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494558132</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[在]]></Content>
+<MsgId>6419078299341622587</MsgId>
+</xml>
+
+2017-05-12 11:02:12 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494558132',
+    'msgtype' => 'text',
+    'content' => '在',
+    'msgid' => '6419078299341622587',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494558132',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:02:12 response :
+------------
+
+2017-05-12 11:02:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494558135</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[http://www.4jxx.com/app/index.php?i=10&c=entry&do=index&m=bsht_tbk]]></Content>
+<MsgId>6419078312226524476</MsgId>
+</xml>
+
+2017-05-12 11:02:15 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494558135',
+    'msgtype' => 'text',
+    'content' => 'http://www.4jxx.com/app/index.php?i=10&c=entry&do=index&m=bsht_tbk',
+    'msgid' => '6419078312226524476',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494558135',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:02:15 response :
+------------
+
+2017-05-12 11:44:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494560698</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419089320227704832</MsgId>
+</xml>
+
+2017-05-12 11:44:58 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494560698',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419089320227704832',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494560698',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:44:58 response :
+------------
+
+2017-05-12 11:45:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494560701</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[海报]]></Content>
+<MsgId>6419089333112606721</MsgId>
+</xml>
+
+2017-05-12 11:45:01 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494560701',
+    'msgtype' => 'text',
+    'content' => '海报',
+    'msgid' => '6419089333112606721',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494560701',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:45:01 response :
+------------
+
+2017-05-12 11:57:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494561458</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[折扣]]></Content>
+<MsgId>6419092584402849950</MsgId>
+</xml>
+
+2017-05-12 11:57:38 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494561458',
+    'msgtype' => 'text',
+    'content' => '折扣',
+    'msgid' => '6419092584402849950',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494561458',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:57:38 response :
+------------
+
+2017-05-12 11:57:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494561462</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[我的关注]]></Content>
+<MsgId>6419092601582719135</MsgId>
+</xml>
+
+2017-05-12 11:57:42 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494561462',
+    'msgtype' => 'text',
+    'content' => '我的关注',
+    'msgid' => '6419092601582719135',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494561462',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:57:42 response :
+------------
+
+2017-05-12 11:58:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494561518</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[我的关注]]></Content>
+<MsgId>6419092842100887721</MsgId>
+</xml>
+
+2017-05-12 11:58:39 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494561518',
+    'msgtype' => 'text',
+    'content' => '我的关注',
+    'msgid' => '6419092842100887721',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494561518',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:58:39 response :
+------------
+
+2017-05-12 11:58:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494561523</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[折扣]]></Content>
+<MsgId>6419092863575724202</MsgId>
+</xml>
+
+2017-05-12 11:58:43 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494561523',
+    'msgtype' => 'text',
+    'content' => '折扣',
+    'msgid' => '6419092863575724202',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494561523',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 11:58:43 response :
+------------
+
+2017-05-12 12:08:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494562081</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419095260167475516</MsgId>
+</xml>
+
+2017-05-12 12:08:01 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494562081',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419095260167475516',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494562081',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:08:01 response :
+------------
+
+2017-05-12 12:09:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494562171</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419095646714532173</MsgId>
+</xml>
+
+2017-05-12 12:09:32 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494562171',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419095646714532173',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494562171',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:09:32 response :
+------------
+
+2017-05-12 12:09:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494562174</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419095659599434062</MsgId>
+</xml>
+
+2017-05-12 12:09:34 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494562174',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419095659599434062',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494562174',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:09:34 response :
+------------
+
+2017-05-12 12:10:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494562214</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419095831398125914</MsgId>
+</xml>
+
+2017-05-12 12:10:14 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494562214',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419095831398125914',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494562214',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:10:14 response :
+------------
+
+2017-05-12 12:45:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564322</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 12:49:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564565</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 12:49:25 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564565',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564565',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-12 12:49:25 response :
+------------
+
+2017-05-12 12:49:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564572</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 12:49:32 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564572',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564572',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 12:49:32 response :
+------------
+
+2017-05-12 12:49:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564591</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419106040535388928</MsgId>
+</xml>
+
+2017-05-12 12:49:51 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564591',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419106040535388928',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564591',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:49:51 response :
+------------
+
+2017-05-12 12:50:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564599</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[我说]]></Content>
+<MsgId>6419106074895127299</MsgId>
+</xml>
+
+2017-05-12 12:50:00 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564599',
+    'msgtype' => 'text',
+    'content' => '我说',
+    'msgid' => '6419106074895127299',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564599',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:50:00 response :
+------------
+
+2017-05-12 12:51:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564681</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 12:51:21 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564681',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564681',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=mc&a=profile&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 12:51:21 response :
+------------
+
+2017-05-12 12:54:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494564841</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[1]]></Content>
+<MsgId>6419107114277212973</MsgId>
+</xml>
+
+2017-05-12 12:54:01 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494564841',
+    'msgtype' => 'text',
+    'content' => '1',
+    'msgid' => '6419107114277212973',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494564841',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 12:54:01 response :
+------------
+
+2017-05-12 13:33:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567222</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419117340594345198</MsgId>
+</xml>
+
+2017-05-12 13:33:43 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567222',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419117340594345198',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567222',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:33:43 response :
+------------
+
+2017-05-12 13:33:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567228</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[欢呼]]></Content>
+<MsgId>6419117366364148975</MsgId>
+</xml>
+
+2017-05-12 13:33:48 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567228',
+    'msgtype' => 'text',
+    'content' => '欢呼',
+    'msgid' => '6419117366364148975',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567228',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:33:48 response :
+------------
+
+2017-05-12 13:35:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567357</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419117920414930182</MsgId>
+</xml>
+
+2017-05-12 13:35:57 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567357',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419117920414930182',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567357',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:35:57 response :
+------------
+
+2017-05-12 13:37:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567429</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[会员中心]]></Content>
+<MsgId>6419118229652575520</MsgId>
+</xml>
+
+2017-05-12 13:37:10 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567429',
+    'msgtype' => 'text',
+    'content' => '会员中心',
+    'msgid' => '6419118229652575520',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567429',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:37:10 response :
+------------
+
+2017-05-12 13:37:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567435</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[111]]></Content>
+<MsgId>6419118255422379299</MsgId>
+</xml>
+
+2017-05-12 13:37:15 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567435',
+    'msgtype' => 'text',
+    'content' => '111',
+    'msgid' => '6419118255422379299',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567435',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:37:15 response :
+------------
+
+2017-05-12 13:45:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567911</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419120299826812351</MsgId>
+</xml>
+
+2017-05-12 13:45:11 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567911',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419120299826812351',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567911',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:45:11 response :
+------------
+
+2017-05-12 13:45:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567916</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[海报]]></Content>
+<MsgId>6419120321301648834</MsgId>
+</xml>
+
+2017-05-12 13:45:16 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567916',
+    'msgtype' => 'text',
+    'content' => '海报',
+    'msgid' => '6419120321301648834',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567916',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:45:16 response :
+------------
+
+2017-05-12 13:45:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494567918</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[恢复]]></Content>
+<MsgId>6419120329891583427</MsgId>
+</xml>
+
+2017-05-12 13:45:18 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494567918',
+    'msgtype' => 'text',
+    'content' => '恢复',
+    'msgid' => '6419120329891583427',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494567918',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:45:18 response :
+------------
+
+2017-05-12 13:48:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568110</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419121154525304330</MsgId>
+</xml>
+
+2017-05-12 13:48:31 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568110',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419121154525304330',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568110',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:48:31 response :
+------------
+
+2017-05-12 13:48:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568114</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[回复]]></Content>
+<MsgId>6419121171705173515</MsgId>
+</xml>
+
+2017-05-12 13:48:34 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568114',
+    'msgtype' => 'text',
+    'content' => '回复',
+    'msgid' => '6419121171705173515',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568114',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:48:34 response :
+------------
+
+2017-05-12 13:48:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568118</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[恢复]]></Content>
+<MsgId>6419121188885042702</MsgId>
+</xml>
+
+2017-05-12 13:48:39 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568118',
+    'msgtype' => 'text',
+    'content' => '恢复',
+    'msgid' => '6419121188885042702',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568118',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:48:39 response :
+------------
+
+2017-05-12 13:48:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568122</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[海报]]></Content>
+<MsgId>6419121206064911888</MsgId>
+</xml>
+
+2017-05-12 13:48:42 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568122',
+    'msgtype' => 'text',
+    'content' => '海报',
+    'msgid' => '6419121206064911888',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568122',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:48:42 response :
+------------
+
+2017-05-12 13:48:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568127</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[我日]]></Content>
+<MsgId>6419121227539748373</MsgId>
+</xml>
+
+2017-05-12 13:48:47 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568127',
+    'msgtype' => 'text',
+    'content' => '我日',
+    'msgid' => '6419121227539748373',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568127',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:48:47 response :
+------------
+
+2017-05-12 13:52:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568352</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[我的关注]]></Content>
+<MsgId>6419122193907390037</MsgId>
+</xml>
+
+2017-05-12 13:52:32 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568352',
+    'msgtype' => 'text',
+    'content' => '我的关注',
+    'msgid' => '6419122193907390037',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568352',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:52:32 response :
+------------
+
+2017-05-12 13:52:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568356</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419122211087259222</MsgId>
+</xml>
+
+2017-05-12 13:52:36 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568356',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419122211087259222',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568356',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:52:36 response :
+------------
+
+2017-05-12 13:54:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494568455</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[NB文字签到]]></Content>
+<MsgId>6419122636289021552</MsgId>
+</xml>
+
+2017-05-12 13:54:15 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494568455',
+    'msgtype' => 'text',
+    'content' => 'NB文字签到',
+    'msgid' => '6419122636289021552',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494568455',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 13:54:15 response :
+------------
+
+2017-05-12 14:16:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569774</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419128301350885378</MsgId>
+</xml>
+
+2017-05-12 14:16:15 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494569774',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419128301350885378',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494569774',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:16:15 response :
+------------
+
+2017-05-12 14:17:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569869</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419128709372778531</MsgId>
+</xml>
+
+2017-05-12 14:17:49 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494569869',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419128709372778531',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494569869',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:17:49 response :
+------------
+
+2017-05-12 14:18:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569904</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419128859696633902</MsgId>
+</xml>
+
+2017-05-12 14:18:25 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494569904',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419128859696633902',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494569904',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:18:25 response :
+------------
+
+2017-05-12 14:19:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569941</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[看新闻]]></Content>
+<MsgId>6419129018610423867</MsgId>
+</xml>
+
+2017-05-12 14:19:01 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494569941',
+    'msgtype' => 'text',
+    'content' => '看新闻',
+    'msgid' => '6419129018610423867',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494569941',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:19:01 response :
+------------
+
+2017-05-12 14:19:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569977</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419129173229246536</MsgId>
+</xml>
+
+2017-05-12 14:19:38 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494569977',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419129173229246536',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494569977',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:19:38 response :
+------------
+
+2017-05-12 14:19:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494569989</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 14:20:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494570000</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-05-12 14:20:00 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494570000',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570000',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-05-12 14:20:00 response :
+------------
+
+2017-05-12 14:20:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494570038</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419129435222251614</MsgId>
+</xml>
+
+2017-05-12 14:20:39 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494570038',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419129435222251614',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570038',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:20:39 response :
+------------
+
+2017-05-12 14:20:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494570043</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419129456697088095</MsgId>
+</xml>
+
+2017-05-12 14:20:43 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494570043',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419129456697088095',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570043',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:20:43 response :
+------------
+
+2017-05-12 14:20:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494570049</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[卧槽]]></Content>
+<MsgId>6419129482466891873</MsgId>
+</xml>
+
+2017-05-12 14:20:50 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494570049',
+    'msgtype' => 'text',
+    'content' => '卧槽',
+    'msgid' => '6419129482466891873',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570049',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:20:50 response :
+------------
+
+2017-05-12 14:23:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494570237</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419130289920743592</MsgId>
+</xml>
+
+2017-05-12 14:23:57 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494570237',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419130289920743592',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570237',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:23:57 response :
+------------
+
+2017-05-12 14:36:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494570988</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419133515441183181</MsgId>
+</xml>
+
+2017-05-12 14:36:28 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494570988',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419133515441183181',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494570988',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:36:28 response :
+------------
+
+2017-05-12 14:36:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494571000</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile]]></EventKey>
+<MenuId>430768055</MenuId>
+</xml>
+
+2017-05-12 14:36:40 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494571000',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'menuid' => '430768055',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494571000',
+    'type' => 'text',
+    'content' => 'http://rrshop.3snack.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-05-12 14:36:40 response :
+------------
+
+2017-05-12 14:38:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494571081</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419133914873141746</MsgId>
+</xml>
+
+2017-05-12 14:38:02 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494571081',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419133914873141746',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494571081',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:38:02 response :
+------------
+
+2017-05-12 14:39:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494571160</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[关注]]></Content>
+<MsgId>6419134254175558139</MsgId>
+</xml>
+
+2017-05-12 14:39:21 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494571160',
+    'msgtype' => 'text',
+    'content' => '关注',
+    'msgid' => '6419134254175558139',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494571160',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:39:21 response :
+------------
+
+2017-05-12 14:39:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwlGJN4wFflnEqszpBOxn1Tc]]></FromUserName>
+<CreateTime>1494571196</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419134408794380810</MsgId>
+</xml>
+
+2017-05-12 14:39:56 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'createtime' => '1494571196',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419134408794380810',
+    'from' => 'oxPoUwlGJN4wFflnEqszpBOxn1Tc',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494571196',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:39:56 response :
+------------
+
+2017-05-12 14:41:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_82eadac870c2]]></ToUserName>
+<FromUserName><![CDATA[oxPoUwsnB8fhXN5DwANhASQi15FY]]></FromUserName>
+<CreateTime>1494571276</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[你好]]></Content>
+<MsgId>6419134752391764512</MsgId>
+</xml>
+
+2017-05-12 14:41:16 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_82eadac870c2',
+    'fromusername' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'createtime' => '1494571276',
+    'msgtype' => 'text',
+    'content' => '你好',
+    'msgid' => '6419134752391764512',
+    'from' => 'oxPoUwsnB8fhXN5DwANhASQi15FY',
+    'to' => 'gh_82eadac870c2',
+    'time' => '1494571276',
+    'type' => 'text',
+    'event' => NULL,
+    'redirection' => false,
+    'source' => NULL,
+  ),
+)
+
+2017-05-12 14:41:16 response :
+------------
+

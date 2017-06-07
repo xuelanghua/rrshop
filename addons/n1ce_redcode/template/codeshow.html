@@ -1,0 +1,44 @@
+{template 'common/header'}
+<div class="main">
+	<div class="category">
+	<div class="panel panel-default">
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th width="150">ID</th>
+                            <th width="150">卡密</th>
+                            <th width="150">状态</th>
+                            <th width="150">生成时间</th>
+                            <th width="150">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $list $row}
+                        <tr>
+                            <td>{$row['id']}</td>
+                            <td>{$row['code']}</td>
+                            <td>
+                                {if $row['status'] == 1}
+                                    <span class="label label-success">未使用</span>
+                                {else}
+                                    <span class="label label-danger">已使用</span>
+                                {/if}
+                            </td>
+                            <td>{php echo date('Y-m-d H:i:s',$row['time'])}</td>
+							
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+	</div>
+
+</div>
+{$pager}
+		
+{template 'common/footer'}

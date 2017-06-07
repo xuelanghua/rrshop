@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    function clickcard(title, href, quantity) {
+        if($.isFunction(selectCardComplete)){
+                selectCardComplete(title, href, quantity);
+        }
+    }
+</script>
+
+<!--二级页面-->
+<div class="link-modal">
+	{loop $result $cardtype $cards}
+            <div class="page-header">
+                <h4><i class="fa fa-folder-open-o"></i> {$card_type[$cardtype]}</h4>
+            </div>
+            {loop $cards $card}
+                <div class="btn btn-default" onclick="clickcard('{$card['title']}','{$card['card_id']}', '{$card['quantity']}');" title="{$card['title']}">{php echo cutstr($card['title'],6);}</div>
+            {/loop}
+	{/loop}
+</div>

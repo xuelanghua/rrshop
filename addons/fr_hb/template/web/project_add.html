@@ -1,0 +1,423 @@
+{template 'common/header'}
+<link type="text/css" rel="stylesheet" href="{__CSS__}/slider.css" />
+<link type="text/css" rel="stylesheet" href="http://v3.bootcss.com/assets/css/docs.min.css" />
+<script type="text/javascript" src="{__JS__}/bootstrap-slider.js"></script>
+<div class="main">
+	<ul class="nav nav-tabs">
+            <li><a href="{php echo $this->createWebUrl('project');}">项目列表</a></li>
+            <li class="active"><a href="{php echo $this->createWebUrl('project', array('act' => 'add'));}">添加项目</a></li>
+	</ul>
+    
+    <div>
+	<form action="" class="form-horizontal form" method="post" autocomplete="off">
+		<input type="hidden" name="id" value="{$item['id']}">
+		<input type="hidden" name="token" value="{$_W['token']}" />
+		<input type="hidden" name="act" value="update" />
+		<div class="panel panel-default">
+                        <div class="panel-heading" id="paoject_info">
+                            {if !empty($id)}修改{else}添加{/if}项目信息
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">项目名称</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="project[title]" autocomplete="off" value="{$item['title']}" />
+                                    </div>
+				</div>
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否需要关注</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="1" name="project[is_follow]" {if $item['is_follow']==1}checked{/if}> 需要
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="0" name="project[is_follow]" {if $item['is_follow']==0}checked{/if}> 不需要
+                                        </label>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>是否需要关注才能领取红包和抽奖</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包数量</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" name="project[numbers]" value="{$item['numbers']}" />
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>设置项目红包的数量</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包类型</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" {if $item['type']==4 && !empty($item['id'])} disabled{/if} value="1" name="project[type]" {if $item['type']==1}checked{/if}> 积分
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" {if $item['type']==4 && !empty($item['id'])} disabled{/if} value="2" name="project[type]" {if $item['type']==2}checked{/if}> 余额
+                                        </label>
+                                        <label class="radio-inline" {if !$isWeixinPay} title="您的商户信息未设置或设置有误"{/if}>
+                                            <input type="radio" {if $item['type']==4 && !empty($item['id'])} disabled{/if} value="3" name="project[type]" {if !$isWeixinPay} disabled title="您的商户信息未设置或设置有误"{/if} {if $item['type']==3 && $isWeixinPay}checked{/if}> 微信零钱
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" {if $item['type']!=4 && !empty($item['id'])} disabled{/if} value="4" name="project[type]" {if $item['type']==4}checked{/if}> 微信卡券
+                                        </label>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>{if !$isWeixinPay} 您的商户信息未设置或设置有误,暂时无法选择微信零钱选项，<a href="{url 'profile/module/setting' array('m' => 'fr_hb')}">立即设置</a>{else}微信零钱需要认证服务号才能用{/if}</p>
+                                        </span>
+                                    </div>
+				</div>
+                                <div class="form-group {if $item['type'] != 4} hide{/if}" id="card_id">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">卡券</label>
+                                    <div class="col-sm-8">
+                                        <div class="clearfix">
+                                            <div class="col-sm-8" style="padding-left: 0">
+                                                <div id="card_id_box">
+                                                    {loop $item['card_ids'] $card_id}
+                                                    <div class="input-group" style="margin-bottom: 8px;">
+                                                        <input class="form-control" readonly type="text" value="{$card_id}" name="card_id[]" autocomplete="off">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-default no-radius"  type="button" onclick="showCardDialog(this);">选择卡券</button>
+                                                        </span>
+                                                        <span class="input-group-btn CardIdInputRemove" data-id="{$item['id']}"><button class="btn btn-danger" type="button"><i class="fa fa-remove"></i></button></span>
+                                                    </div>
+                                                    {/loop}
+                                                </div>
+                                                <p><a href="javascript:;" id="addCardIdInput" class="btn" style="color: blue; outline: none; text-decoration: none;"><i class="fa fa-plus-circle"></i> 添加卡券</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+				</div>
+                                <div class="form-group {if $item['type'] == 4} hide{/if}" id="prize">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包金额</label>
+                                    <div class="col-sm-8">
+                                        <div class="clearfix">
+                                            <div class="col-sm-4" style="padding-left: 0">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">最小额度</span>
+                                                    <input class="form-control" id="min_money" type="number" value="{$item['min_money']}" name="project[min_money]">
+                                                    <span class="input-group-addon">分</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <input type="text" id="sl2" data-slider-value="[{$item['min_money']},{$item['max_money']}]" data-slider-step="1" data-slider-max="{php echo $this->module['config']['max_money'];}" data-slider-min="{php echo $this->module['config']['min_money'];}" value="" style="">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">最大额度</span>
+                                                    <input class="form-control" id="max_money" type="number" value="{$item['max_money']}" name="project[max_money]">
+                                                    <span class="input-group-addon">分</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>红包金额将随机生成，金额由“最小额度”和“最大额度”限制（单位：分）</p>
+                                        </span>
+                                    </div>
+				</div>
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">项目启动时间</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_daterange('datetime', $item['datetime'], true)}
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">项目介绍</label>
+                                    <div class="col-sm-8">
+                                        <textarea style="height:300px; width:100%" class="richtext" name="project[content]" rows="6">{$item['content']}</textarea>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+                                    </div>
+				</div>
+			</div>
+		</div>
+                <div class="panel panel-default">
+			<div class="panel-heading" id='packet_ewm'>
+                            红包二维码设置
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">二维码尺寸</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" id='ewm_setting_size' name='project[ewm_setting][size]' min="1" max="25" value="{$item['ewm_setting']['size']}" />
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>尺寸必须大于4，设置二维码logo才有效</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">容错率</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" class='ewm_setting_level' value="0" {if $item['ewm_setting']['level']==0}checked{/if} name="project[ewm_setting][level]"> 少许（7%）
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" class='ewm_setting_level' value="1" {if $item['ewm_setting']['level']==1}checked{/if} name="project[ewm_setting][level]"> 一般（15%）
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" class='ewm_setting_level' value="2" {if $item['ewm_setting']['level']==2}checked{/if} name="project[ewm_setting][level]"> 较大（25%）
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" class='ewm_setting_level' value="3" {if $item['ewm_setting']['level']==3}checked{/if} name="project[ewm_setting][level]"> 高（30%）
+                                        </label>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">二维码的空白区域大小</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" id='ewm_setting_margin' name='project[ewm_setting][margin]' min='0' value="{$item['ewm_setting']['margin']}" />
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">二维码预览</label>
+                                    <div class="col-sm-8">
+                                        <div style="margin-top:.5em;" class="input-group ">
+                                            <img style='max-width: 150px;' id='ewm_img' class="img-responsive img-thumbnail" src="{php echo $this->createWebUrl('project', array('act' => 'ewm_preview', 'size' => $item['ewm_setting']['size'], 'level' => $item['ewm_setting']['level'], 'margin' => $item['ewm_setting']['margin']));}">
+                                        </div>
+                                        <span class="help-block">
+                                            <p><strong>当前图片尺寸：</strong><code id="ewm_size">计算中...</code></p>
+                                        </span>
+                                    </div>
+				</div>
+			</div>
+		</div>
+                <div class="panel panel-default">
+                        <div class="panel-heading" id="bg_pic">
+                            背景图片设置
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包背景图片</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_image('project[index_bg]', $item['index_bg'])}
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>图片尺寸640*1004</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">提示页面背景图片</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_image('project[tips_bg]', $item['tips_bg'])}
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>图片尺寸640*1004</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">抽奖页面背景图片</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_image('project[draw_bg]', $item['draw_bg'])}
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>图片尺寸640*1004</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享提示图片</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_image('project[share_bg]', $item['share_bg'])}
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>图片尺寸640*1004</p>
+                                        </span>
+                                    </div>
+				</div>
+			</div>
+		</div>
+                <div class="panel panel-default">
+			<div class="panel-heading" id='share_setting'>
+                            分享设置
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="project[share_title]" value="{$item['share_title']}" />
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong><code>{{NICKNAME}}</code>替换成分享者昵称</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享图标</label>
+                                    <div class="col-sm-8">
+                                        {php echo tpl_form_field_image('project[share_thumb]', $item['share_thumb'])}
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>不设置将用分享者头像</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享描述</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="project[share_content]">{$item['share_content']}</textarea>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong><code>{{NICKNAME}}</code>替换成分享者昵称</p>
+                                        </span>
+                                    </div>
+				</div>
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享奖励类型</label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="1" name="project[share_type]" {if $item['share_type']==1}checked{/if}> 积分
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="2" name="project[share_type]" {if $item['share_type']==2}checked{/if}> 余额
+                                        </label>
+                                        <label class="radio-inline" {if !$isWeixinPay} title="您的商户信息未设置或设置有误"{/if}>
+                                            <input type="radio" value="3" name="project[share_type]" {if !$isWeixinPay} disabled title="您的商户信息未设置或设置有误"{/if} {if $item['share_type']==3 && $isWeixinPay}checked{/if}> 微信零钱
+                                        </label>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>{if !$isWeixinPay} 您的商户信息未设置或设置有误,暂时无法选择微信零钱选项，<a href="{url 'profile/module/setting' array('m' => 'fr_hb')}">立即设置</a>{else}微信零钱需要认证服务号才能用{/if}</p>
+                                        </span>
+                                    </div>
+				</div>
+                                <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">分享奖励金额</label>
+                                    <div class="col-sm-8">
+                                        <div class="clearfix">
+                                            <div class="col-sm-4" style="padding-left: 0">
+                                                <div class="input-group">
+                                                    <input class="form-control" id="share_money" type="number" value="{$item['share_money']}" name="project[share_money]">
+                                                    <span class="input-group-addon">分</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="help-block">
+                                            <p><strong class="text-danger">提示：</strong>金额设置为0时，不奖励（单位：分/100=1）</p>
+                                        </span>
+                                    </div>
+				</div>
+				<div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+                                    </div>
+				</div>
+			</div>
+		</div>
+                <div class="col-md-2" style='float:right;'>
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" data-spy="affix" data-offset-top="160" data-offset-bottom="200">
+                        <ul class="nav bs-docs-sidenav">
+                          <li> <a href="#paoject_info">{if !empty($id)}修改{else}添加{/if}项目信息</a></li>
+                          <li> <a href="#packet_ewm">红包二维码设置</a></li>
+                          <li> <a href="#bg_pic">背景图片设置</a></li>
+                          <li> <a href="#share_setting">分享设置</a></li>
+                        </ul>
+                        <a href="#top" class="back-to-top"> 返回顶部 </a>
+                      </nav>
+                </div>
+	</form>
+    </div>
+</div>
+<script type="text/template" id="CardIdInputemplate">
+<div class="input-group" style="margin-bottom: 8px;">
+    <input class="form-control" readonly type="text" value="" name="card_id[]" autocomplete="off">
+    <span class="input-group-btn">
+        <button class="btn btn-default no-radius" type="button" onclick="showCardDialog(this);">选择卡券</button>
+    </span>
+    <span class="input-group-btn CardIdInputRemove"><button class="btn btn-danger" type="button"><i class="fa fa-remove"></i></button></span>
+</div>
+</script>
+<script type="text/javascript">
+    var ewm_url = "{php echo $this->createWebUrl('project', array('act' => 'ewm_preview'));}"
+    function get_ewm_size() {
+        $("<img/>").attr("src", $("#ewm_img").attr("src")).load(function() {
+            var realWidth = this.width;
+            var realHeight = this.height;
+            $("#ewm_size").html(realWidth + "px*" + realHeight + "px");
+        });
+    }
+    var sl2_slider = $("#sl2").slider({
+        formater : function(value) {
+            return Number(value) > 0 ? Number(value) : 1;
+        }
+    }).on('slide', function(ev){
+        $("#min_money").val(ev.value[0]);
+        $("#max_money").val(ev.value[1]);
+    });
+    $("#min_money, #max_money").on("blur", function(){
+        var _max = $("#sl2").data("slider-max");
+        var _min = $("#sl2").data("slider-min");
+        value = [];
+        value[0] = Math.max(_min, Math.min(_max, $("#min_money").val()));
+        value[1] = Math.max(_min, Math.min(_max, $("#max_money").val()));
+        $("#min_money").val(Math.min(value[0], value[1]));
+        $("#max_money").val(Math.max(value[0], value[1]));
+        sl2_slider.slider('setValue', value);
+    })
+    require(['jquery', 'util'], function($, u){
+        $('.richtext').each(function() {
+            u.editor(this);
+        });
+        get_ewm_size();
+    });
+    $("#ewm_setting_size, #ewm_setting_margin").on("keyup input", function(){
+        var params = "&size=" + $("#ewm_setting_size").val() + "&margin=" + $("#ewm_setting_margin").val() + "&level=" + $(".ewm_setting_level:checked").val();
+        $("#ewm_img").attr("src", ewm_url + params);
+        get_ewm_size();
+    });
+    $(".ewm_setting_level").on("click", function(){
+        var params = "&size=" + $("#ewm_setting_size").val() + "&margin=" + $("#ewm_setting_margin").val() + "&level=" + $(".ewm_setting_level:checked").val();
+        $("#ewm_img").attr("src", ewm_url + params);
+        get_ewm_size();
+    });
+</script>
+<script type="text/javascript">
+    var frCardBrowser = function(callback){
+        var footer = '<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>';
+        var modalobj = util.dialog('请选择卡券',['{php echo __WURL("card")}'],footer,{containerName:'link-container'});
+        modalobj.modal({'keyboard': false});
+        modalobj.find('.modal-body').css({'height':'300px','overflow-y':'auto' });
+        modalobj.modal('show'); 
+
+        window.selectCardComplete = function(title, card, quantity){
+            if($.isFunction(callback)){
+                callback(title, card, quantity);
+                //$("#numbers").val(quantity);
+                modalobj.modal('hide');
+            }
+        };
+    }
+    function showCardDialog(elm) {
+        require(["jquery", "util"], function($){
+            var ipt = $(elm).parent().prev();
+            frCardBrowser(function(title, href, quantity){
+                ipt.val(href);
+            });
+        });
+    }
+    $("input[name='project[type]']").click(function(){
+        if ($(this).val() == 4) {
+            $("#card_id").removeClass("hide");
+            $("#prize").addClass("hide");
+        }else{
+            $("#card_id").addClass("hide");
+            $("#prize").removeClass("hide");
+        }
+    });
+    $("#addCardIdInput").click(function(){
+        var template = $("#CardIdInputemplate").html();
+        $(this).parent().siblings("#card_id_box").append(template);
+    });
+    $(document).delegate(".CardIdInputRemove", "click", function() {
+        var id = $(this).data('id'), confirm = false;
+        if (id > 0) {
+            confirm = true;
+        }
+        if (confirm) {
+            if (window.confirm("确定删除？")) {
+                $(this).parent().remove();
+            }
+        }else{
+            $(this).parent().remove();  
+        }  
+    });
+</script>
+{template 'common/footer'}

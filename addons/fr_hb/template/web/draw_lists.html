@@ -1,0 +1,151 @@
+{template 'common/header'}
+<div class="main">
+    <ul class="nav nav-tabs">
+        <li><a href="{php echo $this->createWebUrl('project');}">返回项目列表</a></li>
+        <li class="active"><a href="{php echo $this->createWebUrl('draw', array('id' => $project_id));}">{$project['title']}奖品列表</a></li>
+        <li><a href="{php echo $this->createWebUrl('draw', array('act' => 'add', 'id' => $project_id));}">添加奖品</a></li>
+    </ul>
+    <div class="alert alert-danger">
+            建议奖品数量不要超过8个
+    </div>
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                {$project['title']}抽奖奖品列表
+                <a href="javascript:;" class="pull-right" id="expand-compress"><i class="fa fa-expand"></i></a>
+            </div>
+        <div class="panel-body">
+            <form action="" method="post" id="form1" >
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>					
+                        <th>排序</th>
+                        <th style="text-align:center;">奖品启用</th>
+                        <th>奖品名称</th>
+                        <th>奖品类型</th>
+                        <th style="width: 180px;">奖品</th>
+                        <th>总数量</th>
+                        <th>剩余数量</th>
+                        <th>中奖概率</th>
+                        <th style="text-align:center;">加入抽奖</th>
+                        <th style="text-align:center;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {if $list}
+                    {loop $list $row}
+                        <tr>
+                            <td><input type="text" class="form-control orderlist" name="orderlist[{$row['id']}]" value="{$row['sort']}"></td>
+                            <td style="text-align:center;">
+                                {if $row['status'] == 1}
+                                <a class="setStatus" data-id="{$row['id']}" href="{php echo __WURL('draw', array('act' => 'setStatus', 'id' => $project_id, 'draw_id' => $row['id']));}"><i class="fa fa-check text-success"></i></a>
+                                {else}
+                                <a class="setStatus" data-id="{$row['id']}" href="{php echo __WURL('draw', array('act' => 'setStatus', 'id' => $project_id, 'draw_id' => $row['id']));}"><i class="fa fa-close text-danger"></i></a>
+                                {/if}
+                            </td>
+                            <td><input type="input" name="title[{$row['id']}]" class="form-control" value="{$row['name']}" /></td>
+                            <td>{$type_text[$row['type']]}</td>
+                            <td>
+                                {if $row['type'] == 4}
+                                卡券
+                                <input type="hidden" name="prize[{$row['id']}]" class="form-control" value="{$row['prize']}" />
+                                {else}
+                                <div class="input-group" data-toggle="tooltip" data-placement="top" title="0是没有奖励；{$row['prize']}分 = {php echo $row['prize']/100}元">
+                                    <input type="number" name="prize[{$row['id']}]" class="form-control" value="{$row['prize']}" />
+                                    <span class="input-group-addon">分</span>
+                                </div>
+                                {/if}
+                            </td>
+                            <td>
+                                <input type="number" name="numbers[{$row['id']}]" class="form-control" value="{$row['numbers']}" />
+                            </td>
+                            <td>
+                                <input type="number" name="surplus[{$row['id']}]" class="form-control" value="{$row['surplus']}" />
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" name="chance[{$row['id']}]" class="form-control" value="{$row['chance']}" />
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </td>
+                            <td style="text-align:center;">
+                                {if $row['draw'] == 1}
+                                <a class="setStatus" data-id="{$row['id']}" href="{php echo __WURL('draw', array('act' => 'setDraw', 'id' => $project_id, 'draw_id' => $row['id']));}"><i class="fa fa-check text-success"></i></a>
+                                {else}
+                                <a class="setStatus" data-id="{$row['id']}" href="{php echo __WURL('draw', array('act' => 'setDraw', 'id' => $project_id, 'draw_id' => $row['id']));}"><i class="fa fa-close text-danger"></i></a>
+                                {/if}
+                            </td>
+                            <td align="center">
+                                <a href="{php echo $this->createWebUrl('draw', array('act' => 'add', 'id' => $project_id, 'draw_id' => $row['id']));}" title="编辑"><i class="fa fa-edit"></i></a>  |
+                                <a href="{php echo $this->createWebUrl('draw', array('act' => 'delete', 'id' => $project_id, 'draw_id' => $row['id']));}" title="删除" onclick="return confirm('删除不可恢复,确定要删除该奖品吗?')"><i class="fa fa-remove"></i></a>
+                            </td>
+                        </tr>
+                    {/loop}
+                    {else}
+                        <tr>
+                            <td colspan="7" align='center'>暂无数据</td>
+                        </tr>
+                    {/if}
+                </tbody>
+                <tr>
+                    <td colspan="7" style="text-align:left">
+                        <input name="token" type="hidden" value="{$_W['token']}" />
+                        <input type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交" />
+                    </td>
+                </tr>
+            </table>
+            </form>
+            {$pager}
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{__JS__}/common.js"></script>
+<script type="text/javascript">
+require(['jquery', 'util'], function($, u){
+    $('[data-toggle="tooltip"]').tooltip();
+    $("#form1").submit(function(){
+            var bool=true;
+            $(":text.form-control.orderlist").each(function(index){
+                    var value = parseInt($(this).val());
+                    if(isNaN(value)) {
+                            u.message('排序值必须为数字.', '', 'error');
+                            bool = false;
+                    }
+            });
+            if(!bool) return false;
+    });
+        $("#expand-compress").click(function() {
+            if ($(this).find('i').hasClass('fa-expand')) {
+                setCookie("expand-compress", 'compress');
+                $(this).find('i').addClass('fa-compress').removeClass('fa-expand');
+                $(this).parents('.col-xs-12').addClass('col-lg-12 col-sm-12').removeClass("col-sm-9 col-lg-10").siblings('.big-menu').hide();
+            }else{
+                setCookie("expand-compress", 'expand');
+                $(this).find('i').removeClass('fa-compress').addClass('fa-expand');
+                $(this).parents('.col-xs-12').removeClass('col-lg-12 col-sm-12').addClass("col-sm-9 col-lg-10").siblings('.big-menu').show();
+            }
+         });
+         $(".setStatus").on('click', function() {
+             var _this = $(this), url = _this.attr('href');
+             $.post(url, {award_id : _this.data('id')}, function(res) {
+                 if (res.type == 'success') {
+                     if (res.message == 1) {
+                         _this.find("i").addClass('fa-check text-success').removeClass('fa-close text-danger');
+                     }else{
+                         _this.find("i").removeClass('fa-check text-success').addClass('fa-close text-danger');
+                     }
+                 }else{
+                     alert(res.message);
+                 }
+             }, "JSON");
+             return false;
+         });
+});
+if (getCookie("expand-compress") == 'compress') {
+    $("#expand-compress").find('i').addClass('fa-compress').removeClass('fa-expand');
+    $("#expand-compress").parents('.col-xs-12').addClass('col-lg-12 col-sm-12').removeClass("col-sm-9 col-lg-10").siblings('.big-menu').hide();
+}else{
+    $("#expand-compress").find('i').removeClass('fa-compress').addClass('fa-expand');
+    $("#expand-compress").parents('.col-xs-12').removeClass('col-lg-12 col-sm-12').addClass("col-sm-9 col-lg-10").siblings('.big-menu').show();
+}
+</script>
+{template 'common/footer'}

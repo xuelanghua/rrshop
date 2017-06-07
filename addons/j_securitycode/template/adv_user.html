@@ -1,0 +1,269 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+  <li {if $operation=='display'}class="active"{/if}><a href="{php echo $this->createWebUrl('joiner',array('pcate'=>$pcate));}">参与者管理</a></li>
+  <li {if $operation=='sendmsg'}class="active"{/if}><a href="{php echo $this->createWebUrl('joiner',array('pcate'=>$pcate,'op'=>'sendmsg'));}">消息群发</a></li>
+  <li {if $operation=='limit'}class="active"{/if}><a href="{php echo $this->createWebUrl('joiner',array('pcate'=>$pcate,'op'=>'limit'));}">限制名单管理</a></li>
+</ul>
+<script>
+require(['bootstrap'],function($){
+	$('.btn,.tips').hover(function(){
+		$(this).tooltip('show');
+	},function(){
+		$(this).tooltip('hide');
+	});
+});
+</script> 
+{if $operation == 'limit'}
+<div class="main">
+  <div class="category">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data"  onsubmit="return formcheck(this)">
+      <div class="panel panel-info">
+      <div class="panel-body table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>openid</th>
+            <th>昵称</th>
+            <th>状态</th>
+            <th style="text-align:right">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {php $i=1;}
+        {loop $list $row}
+        <tr>
+          <td>{php echo $i+($pindex-1)*$psize}</td>
+          <td>{$row['from_user']}</td>
+          <td>{$row['nickname']}</td>
+          <td> {if $row['status']==0}<span class="label label-success">正常</span>{else}<span class="label label-danger">禁止</span>{/if} </td>
+          <td style="text-align:right"> {if $row['status']==0} <a href="{php echo $this->createWeburl('joiner',array('op'=>'post','pcate'=>$pcate,'id'=>$row['id'],'status'=>1))}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="禁止参与"><i class="fa fa-thumbs-o-down"></i></a> {else} <a href="{php echo $this->createWeburl('joiner',array('op'=>'post','pcate'=>$pcate,'id'=>$row['id'],'status'=>0))}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="回复正常"><i class="fa fa-thumbs-o-up"></i></a> {/if}
+            &nbsp;&nbsp; <a href="{php echo $this->createWeburl('joiner',array('op'=>'delete','pcate'=>$pcate,'id'=>$row['id']))}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="删除" onclick="return confirm('确认删除此吗？删除不可恢复');return false;"><i class="fa fa-times"></i></a></td>
+        </tr>
+        {php $i++}
+        {/loop}
+          </tbody>
+        
+        <tr>
+          <td colspan="5" style="text-align:center">{$pager}</td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+{elseif $operation == 'sendmsg'}
+<div class="main">
+<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+  <div class="panel panel-info">
+    <div class="panel-body">
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">情况</label>
+        <div class="col-sm-9 col-xs-12">
+        <span class="label label-info">扫码：{$alluser}</span>
+        <span class="label label-warning">入场：{$allin}</span>
+        <span class="label label-info">中奖：0</span>
+        <span class="label label-success">领奖：0</span>
+        <span class="label label-info">发送失败：{php echo count($list)}</span> </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">群发对象</label>
+        <div class="col-sm-9 col-xs-12 form-inline">
+          <select class="form-control" name="sendtarget">
+            <option value="0">请选择</option>
+            <option value="1">所有扫码人员</option>
+            <option value="2">所有入场人员</option>
+            <option value="3">所有中奖人员</option>
+            <option value="4">所有领奖人员</option>
+            <option value="5">发送失败人员</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">群发内容</label>
+        <div class="col-sm-9 col-xs-12 form-inline">
+          <textarea rows="5" class="form-control" name="sendtarcontent" style="width:300px"></textarea>
+          <div class="help-block">支持A标签，如&lt;a href=&quot;http://www.baidu.com&quot;&gt;链接&lt;/a&gt;；支持|#昵称#|。</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+        <div class="col-sm-9 col-xs-12">
+          <button type="button" class="btn btn-info" onClick="resendnall()" >开始发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="category">
+  <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data"  onsubmit="return formcheck(this)">
+    <div class="panel panel-info">
+      <div class="panel-body table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th style="width:50px;">排名</th>
+              <th style="width:84px;">头像</th>
+              <th>昵称</th>
+              <th>内容</th>
+              <th>失败记录</th>
+              <th>时间</th>
+              <th style="text-align:right">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          {php $i=1;}
+          {loop $list $row}
+          <tr>
+            <td>{php echo $i}</td>
+            <td><img src="{$row['headimgurls']}" width="64" height="64" class="img-rounded" onerror="this.src='../app/resource/images/heading.jpg'" /></td>
+            <td><a href="#" class="tips" data-toggle="tooltip" data-placement="bottom" title="{$row['from_user']}"> {php echo $row['nickname'] ? $row['nickname'] :'[含有表情]'}</a></td>
+            <td>{$row['content']}</td>
+            <td>{$row['log']}</td>
+            <td>{if $row["endtime"]}<span class="label label-info">{php echo date('m/d H:i',$row['endtime'])}</span>{/if}</td>
+            <td style="text-align:right">
+            <a href="javascript:reSendMessage({$row['id']})" class="btn btn-info btn-sm"><i class="fa fa-remove"></i>
+            <a href="{php echo $this->createWebUrl('joiner',array('op'=>'msgdelete','pcate'=>$pcate,'id'=>$row['id']))}" onclick="return confirm('确认删除此内容吗？');return false;" class="btn btn-default btn-sm"><i class="fa fa-remove"></i></a>
+            </td>
+          </tr>
+          {php $i++}
+          {/loop}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="increate" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">中奖消息重发</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:0"> <span class="sr-only">0</span> </div>
+        </div>
+        <div id="icounter" style="text-align:center"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn_sendmsg" class="btn btn-primary"  onclick="sendtoUser()">发送</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script language="javascript">
+var sendTpye=0;
+var status_success=0;
+var status_fail=0;
+var send_target=0;
+var cur_count=0;
+var send_result=["{$alluser}","{$allin}",0,0,"{php echo count($list)}"];
+$(function(){
+  $('[data-toggle="popover"]').popover();
+})
+
+function reSendMessage(uid){
+	$.post("{php echo $this->createWebUrl('ajax',array('op'=>'sendmessage','pcate'=>$pcate))}",{"uid":uid},function(data){
+		if(data.success){
+			if(!data.errno){
+				alert("发送成功");
+				location.reload();
+			}else{
+				alert("发送失败，失败提示\n"+data.msg);
+			}
+		}
+	},'json');
+}
+function resendnall(){
+	var _type=parseInt($("select[name='sendtarget'] option:selected").val());
+	if(!_type){
+		alert("请选择发送的目标");
+		return ;
+	}
+	sendTpye=_type;
+	cur_count=0;
+	send_target=send_result[(_type-1)];
+	$("#icounter").html("发送人数："+send_target);
+	$("#increate").modal({
+		backdrop:'static',
+		keyboard:false,
+		show:true,
+	})
+	status_success=0;
+	status_fail=0;
+	$("#btn_sendmsg").removeAttr("disabled");
+}
+function sendtoUser(){
+	$("#btn_sendmsg").attr("disabled","disabled");
+	var content=$("textarea[name='sendtarcontent']").val();
+	$.post("{php echo $this->createWebUrl('ajax',array('op'=>'sendmessage','pcate'=>$pcate))}",{"sendtype":sendTpye,"page":cur_count,"content":content},function(data){
+		if(data.success){
+			cur_count++;
+			if(!data.errno){
+				status_success++;
+			}else{
+				status_fail++;
+			}
+			var persent=(cur_count/send_target)*100+"%";
+			$("#increate .progress-bar").css("width",persent);
+			$("#icounter").html("发送人数："+send_target+"<br>成功："+status_success+"<br>"+"失败："+status_fail);
+			if(cur_count<send_target){
+				sendtoUser();
+			}else{
+				alert("成功："+status_success+"\n"+"失败："+status_fail);
+				location.reload();
+			}
+		}
+	},'json');
+}
+</script> 
+{elseif $operation == 'display'}
+<div class="main">
+  <div class="category">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data"  onsubmit="return formcheck(this)">
+      <div class="panel panel-info">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width:50px;">排列</th>
+                <th style="width:84px;">头像</th>
+                <th>昵称</th>
+                <th>扫码数量</th>
+                <th>红包总额</th>
+                <th>到场</th>
+                <th>最后扫码时间</th>
+                <th style="text-align:right">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {php $i=1;}
+            {loop $list $row}
+            <tr>
+              <td>{php echo $i+($pindex-1)*$psize}</td>
+              <td><img src="{$row['headimgurls']}" width="64" height="64" class="img-rounded" onerror="this.src='../app/resource/images/heading.jpg'" /></td>
+              <td><a href="#" class="tips" data-toggle="tooltip" data-placement="bottom" title="{$row['from_user']}"> {php echo $row['nname'] ? $row['nname'] :'[含有表情]'}</a></td>
+              <td>{$row['qrcount']}</td>
+              <td><span class="label label-info">￥ {php echo sprintf('%.2f', $row['allfee'] / 100)}</span></td>
+              <td> {if $row["attends"]}<span class="label label-success">已入场</span>{else}<span class="label label-default">未入场</span>{/if}
+                {if $row["attends"]}<br>
+                <span class="label label-success">{php echo date('m/d H:i',$row['aendtimes'])}</span>{/if} </td>
+              <td>{if $row["endtimes"]}<span class="label label-info">{php echo date('m/d H:i',$row['endtimes'])}</span>{/if}</td>
+              <td style="text-align:right"></td>
+            </tr>
+            {php $i++}
+            {/loop}
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+      <Div align="center">{$pager}</Div>
+    </form>
+  </div>
+</div>
+{/if}
+{template 'common/footer'} 

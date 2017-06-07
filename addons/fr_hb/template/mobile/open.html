@@ -1,0 +1,36 @@
+{template 'header'}
+<div class="w" style="background-image:url({__IMG__}/libao_bg.jpg);">
+    <div style="position:absolute; font-size:25px; top:10%; width:280px; left:50%; margin-left:-140px; text-align:center; color:#fff02c;">恭喜您获得一个大礼包</div>
+    <div style="position:absolute; font-size:12px; bottom:155px; width:100%; padding:0 6%; text-align:center; color:#FFF;"><img class="tiao" src="{__IMG__}/libao.png" width="100%"/></div>
+    <div style="position:absolute; font-size:35px; bottom:70px; width:100%; text-align:center;">
+    <img src="{__IMG__}/lingqu.png" width="100%" id="openPacket"/>
+    </div>
+</div>
+<script type="text/javascript">
+sharedata = {
+    success : function(res) {
+        var url = "{php echo __MURL('share', array('token' => $token), true);}";
+	$.post(url, function(dat){
+            //alert(dat);
+        });
+    }
+}
+var isOpenPacket = false;
+$("#openPacket").on("click", function(){
+    if (isOpenPacket) {
+        return false;
+    }
+    isOpenPacket = true;
+    var __url = "{php echo __MURL('scan', array('token' => $token), true);}";
+    var frs = '{$fr_open_packet_session}';
+    $.post(__url, { frs: frs }, function(dat) {
+        if (dat.error == 1) {
+            dialog.alert(dat.msg);
+            isOpenPacket = false;
+        }else {
+            location.href = dat.url;
+        }
+    }, 'JSON');    
+})
+</script>
+{template 'footer'}

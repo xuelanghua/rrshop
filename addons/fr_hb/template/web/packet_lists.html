@@ -1,0 +1,128 @@
+{template 'common/header'}
+<div class="main">
+    <ul class="nav nav-tabs">
+        <li><a href="{php echo $this->createWebUrl('project');}">返回项目列表</a></li>
+        <li class="active"><a href="{php echo $this->createWebUrl('packet', array('id' => $project_id));}">{$project['title']}红包列表</a></li>
+        <li><a href="{php echo $this->createWebUrl('packet', array('act' => 'add', 'id' => $project_id));}">添加红包</a></li>
+    </ul>
+
+    <div class="row">
+        <a class="btn btn-primary {if empty($status)} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('id' => $project_id));}">全部</a>
+        <a class="btn btn-primary {if $status == '1'} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('status' => '1', 'id' => $project_id));}">已领取</a>
+        <a class="btn btn-primary {if $status == '2'} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('status' => '2', 'id' => $project_id));}">未领取</a>
+        <a class="btn btn-info {if $total == 0} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('act' => 'downloadzip', 'id' => $project_id));}">打包下载二维码图片</a>
+        <a class="btn btn-info {if $total == 0} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('act' => 'downloadtext', 'id' => $project_id));}">下载二维码文本数据</a>
+<!--        <a class="btn btn-primary {if $status == '3'} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('status' => '3', 'id' => $project_id));}">未生效</a>
+        <a class="btn btn-primary {if $status == '4'} disabled{/if}" href="{php echo $this->createWebUrl('packet', array('status' => '4', 'id' => $project_id));}">已过期</a>-->
+    </div>
+    <div style="padding-top:15px;"></div>
+    {if $noqrccount > 0}
+    <div class="alert alert-danger" ng-controller="advAPI">
+        该项目还有{$noqrccount}个红包未生成二维码图片 <a href="javascript:;" ng-click="generation();">立即批量生成</a>
+    </div>
+    {/if}
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                {$project['title']}红包列表
+            </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>
+                        {if $project['type'] == 4}
+                        <th style="width: 250px;">卡券ID</th>
+                        {else}
+                        <th><a href="{php echo $this->createWebUrl('packet', array('status' => $status, 'id' => $project_id, 'order' => $order));}" title="顺序">红包金额(元)<i class="fa fa-sort-{$order}"></i></a></th>
+                        {/if}
+                        <th>红包二维码</th>
+                        <th>红包类型</th>
+                        <th>红包状态</th>
+                        <th style="text-align:center;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {if $list}
+                    {loop $list $row}
+                        <tr>
+                            {if $project['type'] == 4}
+                            <td>{$row['card_id']}</td>
+                            {else}
+                            <td>￥{php echo $row['money']/100}元</td>
+                            {/if}
+                            <td>
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'view_qrc', 'id' => $project_id, 'packet_id' => $row['id']));}" target="_blank">查看</a>
+                            </td>
+                            <td>{$type_text[$project['type']]}</td>
+                            <td>{php echo getPacketStatus($row['status'], $row['start_time'], $row['end_time'])}</td>
+                            <td align="center">
+                                {if $row['status'] == 1}
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'view', 'id' => $project_id, 'packet_id' => $row['id']));}" title="查看详情"><i class="fa fa-comment-o"></i></a>  |
+                                {else}
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'add', 'id' => $project_id, 'packet_id' => $row['id']));}" title="编辑"><i class="fa fa-edit"></i></a>  |
+                                {/if}
+                                <a href="{php echo $this->createWebUrl('packet', array('act' => 'delete', 'id' => $project_id, 'packet_id' => $row['id']));}" title="删除" onclick="return confirm('删除不可恢复,确定要删除该红包吗?')"><i class="fa fa-remove"></i></a>
+                            </td>
+                        </tr>
+                    {/loop}
+                    {else}
+                        <tr>
+                            <td colspan="5" align='center'>暂无数据</td>
+                        </tr>
+                    {/if}
+                </tbody>
+            </table>
+            {$pager}
+        </div>
+    </div>
+</div>
+{if $noqrccount > 0}
+<script type="text/javascript">
+	var running = false;
+	window.onbeforeunload = function(e) {
+		if(running) {
+                    return (e || window.event).returnValue = '正在批量生成红包二维码图片中, 离开此页面将会中断操作.';
+		}
+	}
+	
+	require(['angular', 'jquery', 'util'], function(angular, $, u){
+		angular.module('app', []).controller('advAPI', function($scope, $element, $http) {
+			$scope.adv = {
+				running : true,
+				genState : ''
+			};
+			$scope.generation = function(){
+                                var count = '{$noqrccount}';
+                                if (count > 10000) {
+                                    if (window.confirm('该项目红包数量过多，建议下载文本数据，点击确定立即下载')) {
+                                        location.href = "{php echo $this->createWebUrl('packet', array('act' => 'downloadtext', 'id' => $project_id));}";
+                                    }
+                                    return false;
+                                }
+				var params = {};
+				params.method = 'generation_qrc';
+				$scope.adv.running = running = true;
+                                u.message('正在生成红包红包二维码图片<br>请不要离开页面或进行其他操作,二维码生成完毕系统会自动刷新本页面');
+				$scope.adv.running = running = true;
+				$http.post("{php echo $this->createWebUrl('packet', array('act' => 'gen_qrc', 'id' => $project_id))}", params).success(function(dat){
+					$scope.adv.running = running = false;
+					if(dat == 'success') {
+                                            //location.reload();
+                                            u.message('红包二维码生成完毕！', "{php echo $this->createWebUrl('packet', array('act' => 'lists', 'id' => $project_id));}", 'success');
+					}else if(dat == 'go'){
+                                            $scope.generation(id, count);
+                                        }else {
+                                            if (typeof dat == 'object') {
+                                                u.message(dat.message, dat.redirect, dat.type);
+                                            }else {
+                                                var msg = dat == '' ? '未知错误, 请稍后重试.' : dat;
+                                                u.message(msg, location.href, 'error');
+                                            }
+					}
+				});
+			}
+		});
+		angular.bootstrap(document, ['app']);
+	});
+</script>
+{/if}
+{template 'common/footer'}

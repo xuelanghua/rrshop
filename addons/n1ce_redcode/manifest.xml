@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.efwww.com" versionCode="0.6,0.7,0.8">
+	<application setting="true">
+		<name><![CDATA[黄河·卡片红包|口令红包|二维码红包]]></name>
+		<identifie><![CDATA[n1ce_redcode]]></identifie>
+		<version><![CDATA[3.7]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[黄河·卡片红包口令红包]]></ability>
+		<description><![CDATA[黄河·卡片红包|口令红包|二维码红包]]></description>
+		<author><![CDATA[源聚城]]></author>
+		<url><![CDATA[www.we7.cc]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="领取入口" do="index" />
+		</cover>
+		<menu>
+			<entry title="验证码生成" do="Code" />
+			<entry title="二维码查看" do="Qrshow" />
+			<entry title="领取流水" do="Usershow" />
+			<entry title="页面设置" do="Index" />
+		</menu>
+	</bindings>
+	<install><![CDATA[CREATE TABLE IF NOT EXISTS `ims_n1ce_red_code` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) unsigned NOT NULL DEFAULT '1',
+  `code` varchar(64) NOT NULL DEFAULT '1',
+  `pici` int(10) NOT NULL DEFAULT '0',
+  `time` varchar(16) NOT NULL DEFAULT '1',
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `iscqr` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_n1ce_red_pic` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) unsigned NOT NULL DEFAULT '1',
+  `bgimg` varchar(64) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;CREATE TABLE IF NOT EXISTS `ims_n1ce_red_pici` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) unsigned NOT NULL DEFAULT '1',
+  `pici` int(10) NOT NULL DEFAULT '0',
+  `codenum` varchar(64) NOT NULL DEFAULT '0',
+  `time` varchar(16) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;CREATE TABLE IF NOT EXISTS `ims_n1ce_red_prize` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) DEFAULT '0',
+  `pici` int(10) NOT NULL DEFAULT '0',
+  `prizeodds` int(10) NOT NULL DEFAULT '0',
+  `prizesum` int(10) unsigned NOT NULL DEFAULT '0',
+  `type` tinyint(4) NOT NULL DEFAULT '0',
+  `min_money` varchar(16) DEFAULT '',
+  `max_money` varchar(16) DEFAULT '',
+  `cardid` varchar(100) DEFAULT '',
+  `url` varchar(255) DEFAULT '',
+  `txt` varchar(255) DEFAULT '',
+  `total_num` int(10) unsigned NOT NULL DEFAULT '0',
+  `prizenum` tinyint(4) NOT NULL DEFAULT '0',
+  `credit` int(10) NOT NULL DEFAULT '0',
+  `time` varchar(32) NOT NULL DEFAULT '1',
+  `name` varchar(100) DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;CREATE TABLE IF NOT EXISTS `ims_n1ce_red_user` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) unsigned NOT NULL DEFAULT '1',
+  `openid` varchar(64) NOT NULL DEFAULT '1',
+  `bopenid` varchar(64) NOT NULL DEFAULT '1',
+  `nickname` varchar(64) NOT NULL DEFAULT '1',
+  `name` varchar(100) DEFAULT '',
+  `code` varchar(64) DEFAULT '',
+  `money` varchar(16) NOT NULL DEFAULT '0',
+  `time` varchar(16) NOT NULL DEFAULT '1',
+  `status` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

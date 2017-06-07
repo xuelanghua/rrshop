@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>核销后台</title>
+<meta name="format-detection" content="telephone=no, address=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link href="./resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="./resource/css/font-awesome.min.css" rel="stylesheet">
+<link href="./resource/css/common.css" rel="stylesheet">
+<script src="{MODULE_URL}template/js/jquery-2.1.1.min.js?v={TIMESTAMP}"></script>
+<script src="{MODULE_URL}template/js/sweetalert.min.js"></script>
+<link type="text/css" rel="stylesheet" href="{MODULE_URL}template/js/sweetalert.css"/>
+</head>
+<style>
+html{height:100%;}
+body{height:100%;/* overflow:hidden;*/background:url({MODULE_URL}template/img/bg.jpg) no-repeat;background-size: 100% 100%;}
+.jpanel{border-radius:4px;padding: 10px;background: rgba(255,255,255,0.8);text-align: left;}
+.main{width:800px;margin:20px auto 0 auto;}
+#result_box div[class^="col-sm"]{padding-top:3px;padding-bottom:3px;}
+#prizelist_box td{ padding:5px 0;}
+.parama_view{ padding:5px 0;}
+</style>
+<body>
+<div class="main" style="padding:10px;">
+  <div class="panel panel-info">
+    <div class="panel-heading">数据统计</div>
+    <div class="panel-body"  style="height:10%;text-align:center">
+      <div class="form-group">
+        <div class="col-sm-3"><strong>总码数</strong></div>
+        <div class="col-sm-3"><strong>核销数量</strong></div>
+        <div class="col-sm-3"><strong>扫码数量</strong></div>
+        <div class="col-sm-3"><strong>剩余数量</strong></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3">{$code_count}</div>
+        <div class="col-sm-3">{$code_scran}</div>
+        <div class="col-sm-3">{$code_used}</div>
+        <div class="col-sm-3">{php echo $code_count-$code_scran}</div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3">-</div>
+        <div class="col-sm-3">{php echo intval($code_scran/$code_count*100)}%</div>
+        <div class="col-sm-3">{php echo intval($code_used/$code_count*100)}%</div>
+        <div class="col-sm-3">{php echo intval(($code_count-$code_scran)/$code_count*100)}%</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">核销结果</div>
+    <div class="panel-body" id="result_box" style="text-align:center">
+      <div class="form-group">
+        <div class="col-sm-3" id="user_header"></div>
+        <div class="col-sm-9">
+        	<div class="form-group">
+            	<div class="col-sm-4"><span class="label label-default">红包金额</span></div>
+                <div class="col-sm-4"><span class="label label-danger">核销次数</span></div>
+                <div class="col-sm-4"><span class="label label-default">扫码时间</span></div>
+            </div>
+            <div class="form-group">
+            	<div class="col-sm-4" id="user_fee">&nbsp;</div>
+                <div class="col-sm-4" id="user_scantime">&nbsp;</div>
+                <div class="col-sm-4" id="user_endtime">&nbsp;</div>
+            </div>
+            <div class="form-group">
+            	<div class="col-sm-4"><span class="label label-default">领取总金额</span></div>
+                <div class="col-sm-4"><span class="label label-default">扫码总量</span></div>
+                <div class="col-sm-4"><span class="label label-default">中奖次数</span></div>
+            </div>
+            <div class="form-group">
+            	<div class="col-sm-4" id="user_allfee">&nbsp;</div>
+                <div class="col-sm-4" id="user_num">&nbsp;</div>
+                <div class="col-sm-4" id="user_prize">&nbsp;</div>
+            </div>
+        </div>
+      </div>
+      <div id="parama_box" style="width:100%; text-align:left;">
+      	{loop $parama $row}
+        <div class="parama_view" id="par_{$row}"><b>{$row}</b> : <span></span></div>
+        {/loop}
+      </div>
+      <div id="prizelist_box" style="height:250px;overflow-y:scroll; width:100%; display:none;">
+      <table width="100%" border="1" cellpadding="3" cellspacing="5" >
+        <tr>
+          <td><strong>图片</strong></td>
+          <td><strong>标题</strong></td>
+          <td><strong>赞助商</strong></td>
+          <td><strong>操作</strong></td>
+        </tr>
+        <tbody id="prize_box"></tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <!--<div class="panel panel-success">
+    <div class="panel-heading">DEBUG</div>
+    <div class="panel-body">
+      <div class="col-sm-12">
+        <textarea id="debug" class="form-control" style="width:100%" rows="3"></textarea>
+      </div>
+    </div>
+  </div>-->
+  <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1" onSubmit="return checkQrcode();return false" >
+    <div class="panel panel-success">
+      <div class="panel-heading">核销</div>
+      <div class="panel-body">
+        <div class="col-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="keyword" id="keyword" placeholder="请使用扫码器接入">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">搜索</button>
+            </span> </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+function checkQrcode(){
+	var _val=$("#keyword").val();
+	if(_val.length<1){
+		swal("请输入内容");
+		return false;
+	}
+	swal("正在查询....");
+	$("#user_header").html("");
+	$("#user_fee").html("");
+	$("#user_scantime").html("");
+	$("#user_endtime").html("");
+	$("#user_allfee").html("");
+	$("#user_num").html("");
+	$("#user_prize").html("");
+	
+	$.post("{php echo $this->createWebUrl('ajax',array('op'=>'webscancode'))}",{code:_val,pcate:"{php echo $pcate}"},function(data){
+		swal.close();
+		$("#keyword").val("");
+		/*$("#debug").html(data);
+		return false;*/
+		if(data.success){
+			
+			$("#prize_box").empty();
+			$(".parama_view span").empty();
+			var _item=data.result;
+			console.log(_item);
+			$("#user_header").html("<img src='"+_item.headimgurl+"' style='width:60%;'/><div>"+_item.nickname+"</div>");
+			$("#user_fee").html(_item.fee);
+			$("#user_scantime").html(_item.ascantime);
+			$("#user_endtime").html(_item.aendtime);
+			$("#user_allfee").html(_item.allfee);
+			$("#user_num").html(_item.num);
+			if(_item.prize){
+				$("#user_prize").html(_item.prize.length);
+			}else{
+				$("#user_prize").html("0");
+			}
+			if(_item.parama){
+				var parama=_item.parama.split("|#|");
+				for(i=0;i<parama.length;i++){
+					$(".parama_view").eq(i).find("span").html(parama[i]);
+				}
+			}
+			
+			if(parseInt(_item.prizenum)){
+				$('#prizelist_box').show();
+				var _prizeAry=_item.prize_ary;
+				var _temp="";
+				var item=_item.prize;
+				for(i=0;i<item.length;i++){
+					_temp+='<tr><td><img src="{$_W["attachurl"]}'+_prizeAry[item[i].prizeid]['img']+'" width="60"/></td><td>'+_prizeAry[item[i].prizeid]['title']+'</td><td>'+_prizeAry[item[i].prizeid]["sponsor"]+'</td><td>';
+					if(!parseInt(item[i].status)){
+						_temp+='<button class="btn btn-danger" type="button" id="p_id'+item[i].id+'" onClick="getPrize('+item[i].id+')">核销</button>';
+					}else{
+						_temp+='<button class="btn btn-success" type="button" disabled>已领</button>';
+					}
+					_temp+="</td></tr>";
+				}
+				$("#prize_box").html(_temp);
+			}
+		}else{
+			swal(data.msg);
+		}
+	},'json');
+	return false;
+}
+
+function getPrize(id){
+	swal({
+		title: "确认核销?",
+		text: "是否确认核销奖品",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonText: "确认兑换",
+		cancelButtonText: "取消",
+		closeOnConfirm: false },function(){
+			$.getJSON("{php echo $this->createWebUrl('ajax',array('op'=>'dealprize'))}",{'id':id},function(data){
+				if(data.success){
+					swal("领取成功");
+					$("#p_id"+id).removeAttr("onClick").removeClass("btn-danger").addClass("btn-success").attr("disabled","disabled");
+					$("#p_id"+id).text("已领");
+				}else{
+					swal("未知错误");
+				}
+			})
+		});
+	
+}
+</script>

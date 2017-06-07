@@ -1,0 +1,308 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+  <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('lucky', array('op' => 'display','pcate' => $pcate))}">管理抽奖</a></li>
+  <li {if $operation == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('lucky', array('op' => 'post','pcate' => $pcate))}">添加抽奖活动</a></li>
+  {if $operation == 'joiner'}
+  <li class="active"><a href="{php echo $this->createWebUrl('lucky', array('op' => 'joiner','pcate' => $pcate,'id' => $id))}">中奖名单</a></li>
+  {/if}
+</ul>
+<script language="javascript">
+require(['bootstrap'],function($){
+	$('.btn,.tips').hover(function(){
+		$(this).tooltip('show');
+	},function(){
+		$(this).tooltip('hide');
+	});
+});
+</script> 
+{if $operation == 'post'}
+<style>
+.jpanel .panel-heading {position:relative;}
+.jpanel .panel-collapse {width:50px;height:38px;line-height:38px;position:absolute;top:0;right:0;color: #CCC;text-align: center;background: #EEE;border-left: 1px #DDD solid;}
+</style>
+<div class="main">
+  <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+    <input type="hidden" name="pcate" value="{php echo $pcate}" />
+    <input type="hidden" name="id" value="{php echo $id}" />
+    <div class="panel panel-default jpanel"> 
+      {if $id}
+      <div class="panel-heading"> 抽奖管理 </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">扩展功能</label>
+          <div class="col-sm-9"> <a href="{php echo $this->createWebUrl('lucky', array('id' => $id,'pcate' => $pcate,'op'=>'show_lucky'))}" class="btn btn-success" target="_blank">抽奖大屏幕</a> <a href="{php echo $this->createWebUrl('lucky', array('id' => $id,'pcate' => $pcate,'op'=>'joiner'))}" class="btn btn-info" target="_blank">得奖名单</a> </div>
+        </div>
+      </div>
+      {/if}
+      <div class="panel-heading">
+        <h4 class="panel-title">核心设置</h4>
+        <a class="panel-collapse" data-toggle="collapse" href="#jframe-2"> <i class="fa fa-chevron-circle-down"></i> </a> </div>
+      <div class="panel-body collapse in" id="jframe-2">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">标题</label>
+          <div class="col-sm-9">
+            <input type="text" value="{$item['title']}" class="form-control" name="title" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">背景图</label>
+          <div class="col-sm-9"> {php echo tpl_form_field_image('bg', $item['bg'])} </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">默认抽奖头像</label>
+          <div class="col-sm-9"> {php echo tpl_form_field_image('thumb', $item['thumb'])}
+            <div class="help-block">建议大小:200*200px</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">参与对象</label>
+          <div class="col-sm-9 form-inline">
+            <select class="form-control" name="jointype">
+              <option value="0" {if !$item['jointype'] || !$item}selected{/if}>扫码的客户</option>
+              <option value="1" {if $item['jointype']}selected{/if}>核销的客户</option>
+            </select>
+            <div class="help-block">针对可以参与抽奖的对象。一是针对扫码的客户，另一种就是在现场的客户</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">抽奖项目</label>
+          <div class="col-sm-9">
+            <div id="parama"> {php $i=1;}
+              {loop $prize_list $row}
+              <div>
+                <label dd="{php echo $i}" class="form-inline">
+                  <input class="form-control" name="option[]" value="{$row}" placeholder="请输入奖励名称">
+                  <a href="javascript:del({php echo $i})"><i class="glyphicon glyphicon-remove-circle"></i></a></label>
+              </div>
+              {php $i++}
+              {/loop} </div>
+            <a href="javascript:addparama()"><i class="icon-plus-sign-alt"></i> 添加</a>
+            <div class="help-block">如，一等奖，二等奖，或者是奖品名称</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">中奖提示</label>
+          <div class="col-sm-9">
+            <input type="text" value="{$item['msg']}" class="form-control" name="msg" >
+            <div class="help-block">中奖提示发送到中奖者的手机中，可用标签|#奖品#|</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-xs-12">
+      <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+      <input type="hidden" name="token" value="{$_W['token']}" />
+    </div>
+  </form>
+</div>
+<script>
+var i=$("#parama label").size();
+function addparama(){
+	i++;
+	var temp="<div><label dd='"+i+"' class='form-inline'><input class='form-control' name='option[]' required placeholder='请输入奖励名称'/> <a href='javascript:del("+i+")'><i class='glyphicon glyphicon-remove-circle'></i></a></label></div>";
+	$("#parama").append(temp);
+}
+function del(obj){
+	$("label[dd='"+obj+"']").remove();
+}
+</script> 
+{elseif $operation == 'display'}
+<style>
+.tl span{color:#999;}
+.category td div{ padding-bottom:3px;}
+.table td,.table-hover td{overflow:visible; word-break:break-all; text-overflow:visible;white-space:normal}
+</style>
+<div class="main">
+  <div class="category">
+    <form action="" method="post" onsubmit="return formcheck(this)">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width:40px">#</th>
+                <th>标题</th>
+                <th>参与者</th>
+                <th>奖品</th>
+                <th style="text-align:right">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {loop $list $row}
+            <tr>
+              <td>{$row['id']}</td>
+              <td>{$row['title']}</td>
+              <td>{if !$row['jointype']}扫码的客户{else}核销的客户{/if}</td>
+              <td>{php echo str_replace("|#|","<br>",$row['option'])}</td>
+              <td style="text-align:right"><a href="{php echo $this->createWebUrl('lucky', array('id' =>$row['id'],'pcate' => $pcate,'op'=>'show_lucky'))}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="抽奖界面" target="_blank"><i class="fa fa-desktop"></i></a> <a href="{php echo $this->createWebUrl('lucky', array('op' => 'joiner','id' => $row['id'],'pcate' => $pcate))}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="得奖名单"><i class="fa fa-gift"></i></a> <a href="{php echo $this->createWebUrl('lucky', array('op' => 'post','id' => $row['id'],'pcate' => $pcate))}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="编辑"><i class="fa fa-edit"></i></a> <a href="{php echo $this->createWebUrl('lucky', array('op'=>'delete','id'=>$row['id'],'pcate'=>$pcate))}" onclick="return confirm('确认删除吗？删除后不可恢复');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-times"></i></a></td>
+            </tr>
+            {/loop}
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{elseif $operation == 'joiner'}
+<style>
+.tl span{color:#999;}
+.category td div{ padding-bottom:3px;}
+.table td,.table-hover td{overflow:visible; word-break:break-all; text-overflow:visible;white-space:normal}
+</style>
+<script language="javascript" src="{MODULE_URL}template/js/bootstrap-tooltip.js"></script> 
+<script language="javascript" src="{MODULE_URL}template/js/bootstrap-popover.js"></script>
+<div class="main">
+  <div class="category">
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+          <div class="col-sm-9"> <span class="label label-default">中奖人数:{php echo $count_ary['all']}</span> <span class="label label-info">已领奖:{php echo $count_ary['get']}</span> <span class="label label-info">待领奖:{php echo $count_ary['noget']}</span> <span class="label label-warning">消息发送成功:{php echo $count_ary['sendsuccess']}</span> <span class="label label-warning">消息发送失败:{php echo $count_ary['sendfail']}</span> </div>
+        </div>
+        <div class="form-group" style="padding-top:10px">
+          <label class="col-xs-12 col-sm-3 col-md-2 control-label">重发</label>
+          <div class="col-sm-9"> <a href="javascript:resendnall(0)" class="btn btn-default">全部重发</a> <a href="javascript:resendnall(1)" class="btn btn-default">未领奖重发</a> <a href="javascript:resendnall(2)" class="btn btn-default">失败重发</a> </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-warning">
+      <form action="" method="get" class="form-horizontal form" enctype="multipart/form-data">
+        <div class="panel-body">
+          <div class="form-group" style="padding-top:20px">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">&nbsp;</label>
+            <div class="col-sm-9 form-inline">
+              <div class="input-group">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="do" value="lucky" />
+                <input type="hidden" name="op" value="joiner" />
+                <input type="hidden" name="id" value="{php echo $id}" />
+                <input type="hidden" name="m" value="j_securitycode" />
+                <input type="hidden" name="pcate" value="{php echo $pcate}" />
+                <input type="text" class="form-control" placeholder="请输入搜索内容" name="keyword" value="{$_GPC['keyword']}">
+                <span class="input-group-btn">
+                <button class="btn btn-info" type="submit">搜索</button>
+                </span> </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">注意：由于客服消息有48小时交互限制。如想更好的用户体验，先让中奖的客户发送[兑奖]关键字到公众号。然后再重发中奖信息</div>
+      <div class="panel-body table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>头像</th>
+              <th>昵称</th>
+              <th>获得奖品</th>
+              <th>信息发送状态</th>
+              <th style="text-align:right">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+          {php $i=1;}
+          {loop $list $row}
+          <tr>
+            <td>{php echo $i}</td>
+            <td><img src="{$row['avatar']}" width="80" height="80"/></td>
+            <td>{$row['nickname']}</td>
+            <td>{$row['prize']}</td>
+            <td>{if !$row['sendstatus']}<span class="label label-danger" data-container="body"  data-toggle="popover" data-placement="top" data-content="{$row['remark']}">发送失败</span>{else}<span class="label label-success">已发送</span>{/if} <a href="javascript:reSendMessage({$row['id']})" class="btn btn-xs btn-info" data-toggle="tooltip" data-placement="bottom" title="重发中奖信息"><i class="fa fa-mail-forward"></i></a></td>
+            <td style="text-align:right"> {if !$row['status']} <a href="{php echo $this->createWebUrl('lucky', array('op'=>'joinerprize','id'=>$id,'uid'=>$row['id'],'pcate'=>$pcate,'status'=>1))}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="标识领奖"><i class="fa fa-gift"></i></a> {else} <a href="{php echo $this->createWebUrl('lucky', array('op'=>'joinerprize','id'=>$id,'uid'=>$row['id'],'pcate'=>$pcate,'status'=>0))}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="取消领奖"><i class="fa fa-gift"></i></a> {/if} <a href="{php echo $this->createWebUrl('lucky', array('op'=>'joinerdelete','id'=>$id,'uid'=>$row['id'],'pcate'=>$pcate))}" onclick="return confirm('确认删除吗？删除后不可恢复');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-times"></i></a></td>
+          </tr>
+          {php $i++}
+          {/loop}
+            </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+<div id="increate" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">中奖消息重发</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:0"> <span class="sr-only">0</span> </div>
+        </div>
+        <div id="icounter" style="text-align:center"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn_sendmsg" class="btn btn-primary"  onclick="sendtoUser()">重发</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script language="javascript">
+var sendTpye=0;
+var status_success=0;
+var status_fail=0;
+var send_target=0;
+var cur_count=0;
+var send_result=["{php echo $count_ary['all']}","{php echo $count_ary['noget']}","{php echo $count_ary['sendfail']}"];
+$(function(){
+  $('[data-toggle="popover"]').popover();
+})
+function reSendMessage(uid){
+	$.post("{php echo $this->createWebUrl('lucky', array('op' => 'resendmessage','id' => $id,'pcate' => $pcate))}",{"uid":uid},function(data){
+		if(data.success){
+			if(!data.errno){
+				alert("发送成功");
+				location.reload();
+			}else{
+				alert("发送失败，失败提示\n"+data.msg);
+			}
+		}
+	},'json');
+}
+function resendnall(obj){
+	sendTpye=obj;
+	cur_count=0;
+	send_target=parseInt(send_result[obj]);
+	$("#icounter").html("发送人数："+send_target);
+	$("#increate").modal({
+		backdrop:'static',
+		keyboard:false,
+		show:true,
+	})
+	status_success=0;
+	status_fail=0;
+}
+function sendtoUser(){
+	$("#btn_sendmsg").attr("disabled","disabled");
+	$.post("{php echo $this->createWebUrl('lucky',array('op'=>'resendmessage','id'=>$id,'pcate'=>$pcate))}",{"uid":0,"sendtype":sendTpye,"page":cur_count},function(data){
+		if(data.success){
+			cur_count++;
+			if(!data.errno){
+				status_success++;
+			}else{
+				status_fail++;
+			}
+			var persent=(cur_count/send_target)*100+"%";
+			$("#increate .progress-bar").css("width",persent);
+			$("#icounter").html("发送人数："+send_target+"<br>成功："+status_success+"<br>"+"失败："+status_fail);
+			if(cur_count<=send_target){
+				sendtoUser();
+			}else{
+				alert("成功："+status_success+"\n"+"失败："+status_fail);
+				location.reload();
+			}
+		}
+	},'json');
+}
+</script> 
+{/if} 
+{template 'common/footer'} 

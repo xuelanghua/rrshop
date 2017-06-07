@@ -1,0 +1,39 @@
+{template 'header'}
+<div class="w" style="background-image:url({$bg});">
+    <div style="position:absolute; font-size:30px; top:5px; width:100%; text-align:center; color:red;">恭喜您</div>
+    {if $project['type'] == 3}
+    <div style="position:absolute; font-size:25px; top:10%; width:100%; text-align:center; color:#fff02c;">
+        <div style="position: relative">
+            <img src="{__IMG__}/award/hongbao.png" width="100%" />
+            <span style="position: absolute; z-index: 22; top: 40%; left: 50%; width: 280px; margin-left: -140px;">您已经成功领取<br>{$prize}！</span>
+        </div>
+    </div>
+    {/if}
+    {if $project['type'] == 2}
+    <div style="position:absolute; font-size:25px; top:10%; width:100%; text-align:center; color:#fff02c;">
+        <a href="{php echo murl('mc/bond/credits', array('credittype' => 'credit2'), false, true);}"><img src="{__IMG__}/award/yue.png" width="100%" /></a>
+    </div>
+    {/if}
+    {if $project['type'] == 1}
+    <div style="position:absolute; font-size:25px; top:10%; width:100%; text-align:center; color:#fff02c;">
+        <a href="{php echo murl('mc/bond/credits', array('credittype' => 'credit1'), false, true);}"><img src="{__IMG__}/award/jifen.png" width="100%" /></a>
+    </div>
+    {/if}
+    {if $project['type'] == 4}
+    <div style="position:absolute; font-size:25px; top:10%; width:100%; text-align:center; color:#fff02c;">
+        <a href="javascript:;"><img src="{__IMG__}/award/kaquan.png" width="100%" /></a>
+    </div>
+    {/if}
+    <div style="position:absolute; font-size:35px; bottom:10%; width:250px; border-radius:5px; left:50%; margin-left:-125px; padding:5px 10px; text-align:center; background:#FF0;"><a href="javascript:;" class="fr_share" style=" color:#e94b4e; text-decoration:none;">分享惊喜</a></div>
+</div>
+<script type="text/javascript">
+sharedata = {
+    success : function(res) {
+        var url = "{php echo __MURL('share', array('token' => $token), true);}";
+	$.post(url, function(dat){
+            //alert(dat);
+        });
+    }
+}
+</script>
+{template 'footer'}

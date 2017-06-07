@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.efwww.com" versionCode="0.6,0.7,0.8">
+	<application setting="true">
+		<name><![CDATA[捷讯防伪抽奖码]]></name>
+		<identifie><![CDATA[j_securitycode]]></identifie>
+		<version><![CDATA[2.83]]></version>
+		<type><![CDATA[activity]]></type>
+		<ability><![CDATA[捷讯防伪抽奖码]]></ability>
+		<description><![CDATA[捷讯防伪抽奖码]]></description>
+		<author><![CDATA[优智汇网络科技]]></author>
+		<url><![CDATA[weizan.gduzh.com]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+		</subscribes>
+		<handles>
+			<message type="image" />
+			<message type="qr" />
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="防伪码管理" do="category" state="" direct="false" />
+			<entry title="红包管理" do="redpack" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `title` varchar(50) NOT NULL COMMENT '名称',
+  `description` VARCHAR(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否开启',
+  `parama` varchar(500) NOT NULL DEFAULT '',
+  `argument` varchar(5000) NOT NULL DEFAULT '',
+  `link` VARCHAR(255) NOT NULL,
+  `scantype` tinyint(1) NOT NULL DEFAULT '0',
+  `codetype` tinyint(1) NOT NULL DEFAULT '0',
+  `gametype` tinyint(1) NOT NULL DEFAULT '0',
+  `playtype` tinyint(1) NOT NULL DEFAULT '0',
+  `collecttype` tinyint(1) NOT NULL DEFAULT '0',
+  `collectorder` VARCHAR(200) NOT NULL,
+  `redpackid` int(10) NOT NULL DEFAULT '0',
+  `grouptype` varchar(50) NOT NULL DEFAULT '0',
+  `scantimevent` int(10) NOT NULL DEFAULT '0',
+  `jointime` int(10) NOT NULL DEFAULT '0',
+  `welcome` varchar(1000) NOT NULL DEFAULT '',
+  `content` VARCHAR(2000) NOT NULL,
+  `content2` VARCHAR(2000) NOT NULL,
+  `content4` VARCHAR(2000) NOT NULL,
+  `content3` varchar(1000) NOT NULL,
+  `content5` varchar(1000) NOT NULL,
+  `url` VARCHAR(300) NOT NULL,
+  `urlword` VARCHAR(50) NOT NULL,
+  `starttime` int(10) NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `endtime` int(10) NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `encryption` VARCHAR(50) NOT NULL,
+  `wxcard` VARCHAR(2000) NOT NULL,
+  `redpack` VARCHAR(2000) NOT NULL,
+  `creditstpye` VARCHAR(50) NOT NULL,
+  `credits` int(10) NOT NULL DEFAULT '0',
+  `replytime` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_code` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0',
+  `pcate` int(10) NOT NULL DEFAULT '0',
+  `from_user` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `headimgurl` varchar(300) NOT NULL,
+  `ip` varchar(50) NOT NULL,
+  `codetype` tinyint(1) NOT NULL DEFAULT '0',
+  `code` varchar(100) NOT NULL DEFAULT '',
+  `scantime` int(10) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NULL DEFAULT '0',
+  `ishow` tinyint(1) NULL DEFAULT '0',
+  `redpack` int(10) NULL DEFAULT '0',
+  `isgetredpack` tinyint(1) NULL DEFAULT '0',
+  `createtime` int(10) NOT NULL DEFAULT '0',
+  `endtime` int(10) NOT NULL DEFAULT '0',
+  `wxcard` varchar(300) NOT NULL DEFAULT '',
+  `log` varchar(300) NOT NULL DEFAULT '',
+  `fee` int(10) NOT NULL DEFAULT '0',
+  `completed` tinyint(1) NULL DEFAULT '0',
+  `parama` text NOT NULL DEFAULT '',
+  `argument` text NOT NULL DEFAULT '',
+  `argumentkey` text NOT NULL DEFAULT '',
+  `validtime` int(10) NOT NULL DEFAULT '0',
+  `qrurl` varchar(300) NOT NULL DEFAULT '',
+  `ascantime` int(10) NOT NULL DEFAULT '0',
+  `aendtime` int(10) NOT NULL DEFAULT '0',
+  `qrtype` varchar(20) DEFAULT '' COMMENT '二维码类别',
+  `collect` tinyint(1) NOT NULL DEFAULT '0',
+  `questionuse` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_limit` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0',
+  `pcate` int(10) NULL DEFAULT '0',
+  `codeid` int(10) NULL DEFAULT '0',
+  `from_user` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `status` tinyint(1) NULL DEFAULT '0',
+  `log` varchar(200) NOT NULL,
+  `endtime` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_joiner` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `pcate` int(10) NULL DEFAULT '0',
+  `from_user` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `headimgurl` varchar(300) NOT NULL,
+  `sex` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NULL DEFAULT '0',
+  `createtime` int(10) NOT NULL DEFAULT '0',
+  `endtime` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_redpack` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `pcate` int(10) NULL DEFAULT '0',
+  `title` varchar(100) DEFAULT NULL,
+  `firstmin` int(11) NOT NULL DEFAULT '0',
+  `firstmax` int(11) NOT NULL DEFAULT '2',
+  `maxnums` int(11) DEFAULT '1' COMMENT '最大领取数量',
+  `totalfee` int(10) DEFAULT '0' COMMENT '总金额',
+  `totalnum` int(10) DEFAULT '0' COMMENT '红包个数',
+  `remainfee` int(10) DEFAULT '0' COMMENT '剩余金额',
+  `alertfee` int(10) DEFAULT '0' COMMENT '警报金额',
+  `alertuser` varchar(300) DEFAULT NULL COMMENT '警报接收人',
+  `wishing` varchar(128) DEFAULT NULL,
+  `send_name` varchar(128) DEFAULT NULL,
+  `appid` varchar(100) DEFAULT NULL,
+  `secret` varchar(100) DEFAULT NULL,
+  `mchid` varchar(20) DEFAULT NULL,
+  `ip` varchar(25) DEFAULT NULL,
+  `signkey` varchar(32) DEFAULT NULL,
+  `rootca` tinyint(1) DEFAULT '0',
+  `apiclient_cert` tinyint(1) DEFAULT '0',
+  `apiclient_key` tinyint(1) DEFAULT '0',
+  `isself` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_reply` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(11) NOT NULL,
+  `rid` int(10) unsigned NOT NULL DEFAULT '0',
+  `gid` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `title` varchar(200) NOT NULL COMMENT '回复标题',
+  `cover` varchar(250) NOT NULL COMMENT '图文回复图片',
+  `description` varchar(250) NOT NULL COMMENT '图文回复描述',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_msgsend` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0',
+  `pcate` int(10) NULL DEFAULT '0',
+  `from_user` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `status` tinyint(1) NULL DEFAULT '0',
+  `content` varchar(500) NOT NULL,
+  `log` varchar(200) NOT NULL,
+  `endtime` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_luckygame` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pcate` int(10) unsigned NOT NULL,
+  `weid` int(10) unsigned NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `jointype` tinyint(1) NOT NULL DEFAULT '0' COMMENT '抽奖',
+  `option` varchar(300) NOT NULL COMMENT '抽奖内容',
+  `msg` varchar(200) NOT NULL COMMENT '中奖提示',
+  `bg` varchar(300) NOT NULL COMMENT '背景',
+  `thumb` varchar(300) NOT NULL COMMENT '头像',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_j_securitycode_luckywinner` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pcate` int(10) unsigned NOT NULL,
+  `lid` int(10) unsigned NOT NULL,
+  `weid` int(10) unsigned NOT NULL,
+  `from_user` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `avatar` varchar(255) NOT NULL COMMENT '头像',
+  `prize` varchar(50) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `sendstatus` tinyint(1) NOT NULL DEFAULT '0' COMMENT '发送状态',
+  `remark` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+]]></install>
+	<uninstall><![CDATA[
+DROP TABLE IF EXISTS `ims_j_securitycode_code`;
+DROP TABLE IF EXISTS `ims_j_securitycode_category`;
+DROP TABLE IF EXISTS `ims_j_securitycode_joiner`;
+DROP TABLE IF EXISTS `ims_j_securitycode_redpack`;
+DROP TABLE IF EXISTS `ims_j_securitycode_reply`;
+DROP TABLE IF EXISTS `ims_j_securitycode_msgsend`;
+DROP TABLE IF EXISTS `ims_j_securitycode_luckygame`;
+DROP TABLE IF EXISTS `ims_j_securitycode_luckywinner`;
+	]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
